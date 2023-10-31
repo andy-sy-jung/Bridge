@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
-    def home
-        # Action code here
-      end
+    
+    def index
+        if session[:loggedIn].nil? or session[:loggedIn] == False
+            redirect_to signup_path
+        end
+    end
+
+
 end
