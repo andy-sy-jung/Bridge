@@ -6,9 +6,8 @@ class CustomSessionsController < Devise::SessionsController
       index_path(loggedIn: true)
     end
 
-    def destroy
-        session[:loggedIn] = nil
-        super
+    def after_sign_out_path_for(resource)
+        index_path(loggedIn: false)
     end
 
   end
