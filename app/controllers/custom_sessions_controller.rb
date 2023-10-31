@@ -6,7 +6,10 @@ class CustomSessionsController < Devise::SessionsController
       index_path(loggedIn: true)
     end
 
-    
+    def destroy
+        session[:loggedIn] = nil
+        super
+    end
 
   end
   
