@@ -24,4 +24,3 @@ rails server
 
 * Deployment instructions
 
-* ...
