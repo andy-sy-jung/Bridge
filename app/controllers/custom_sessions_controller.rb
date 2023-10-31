@@ -5,5 +5,10 @@ class CustomSessionsController < Devise::SessionsController
       # Redirect to your main page (index) with the loggedIn parameter
       index_path(loggedIn: true)
     end
+
+    def destroy
+        super
+    end
+
   end
   
