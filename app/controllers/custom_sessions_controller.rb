@@ -7,8 +7,9 @@ class CustomSessionsController < Devise::SessionsController
     end
 
     def after_sign_out_path_for(resource)
-        index_path(loggedIn: false)
+        new_user_session_path
     end
+
 
   end
   
