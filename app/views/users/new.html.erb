@@ -1,0 +1,21 @@
+<h2>Create New Posting</h2>
+
+<%= form_tag users_path, :class => 'form' do %>
+  <%= label :posting, :type, 'User/Professional', :class => 'col-form-label' %>
+  <%= text_field :posting, :type, :class => 'form-control' %>
+  <%= label :posting, :name, 'Name', :class => 'col-form-label' %>
+  <%= text_field :posting, :name, :class => 'form-control' %>
+  <%= label :posting, :subject, 'Subject', :class => 'col-form-label' %>
+  <%= text_field :posting, :subject, :class => 'form-control' %>
+  <%= label :posting, :description, 'Description', :class => 'col-form-label' %>
+  <%= text_field :posting, :description, :class => 'form-control' %>
+  <%= label :posting, :price, 'Price', :class => 'col-form-label' %>
+  <%= text_field :posting, :price, :class => 'form-control' %>
+  <%= label :posting, :availability, 'Availability', :class => 'col-form-label' %>
+  <%= text_field :posting, :availability, :class => 'form-control' %>
+  <%= label :posting, :contact, 'Contact Info', :class => 'col-form-label' %>
+  <%= text_field :posting, :contact, :class => 'form-control' %>
+  <br/>
+  <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', users_path, :class => 'btn btn-secondary' %>
+<% end %>

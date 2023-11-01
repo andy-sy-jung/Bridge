@@ -1,0 +1,37 @@
+<h2>Details about <em><%= @posting.name 's posting' %></em></h2>
+
+<ul id="details">
+  <li>
+    Type:
+    <%= @posting.type %>
+  </li>
+  <li>
+    Subject:
+    <%= @posting.subject %>
+  </li>
+  <li>
+    Description:
+    <%= @posting.description %>
+  </li>
+  <li>
+    Availability:
+    <%= @posting.availability %>
+  </li>
+  <li>
+    Price:
+    <%= @posting.price %>
+  </li>
+  <li>
+    Contact Info:
+    <%= @posting.contact %>
+  </li>
+</ul>
+
+<h3>Description:</h3>
+<p id="description">
+  <%= @posting.description %>
+</p>
+
+<div class="row">
+  <%= link_to 'Back to full list', users_path, :class => 'btn btn-primary col-2' %>
+</div>
