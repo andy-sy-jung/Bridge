@@ -2,17 +2,26 @@ class PostingsController < ApplicationController
     before_action :authenticate_user!
     
     def index
-        @postings = Users.all
+        @postings = Posting.all
     end
 
     def show
       id = params[:id] # retrieve user ID from URI route
-      @posting = Users.find(id) # look up posting by unique ID
+      @posting = Posting.find(id) # look up posting by unique ID
       # will render app/views/users/show.<extension> by default
     end
 
     def new
+      @posting = Posting.new
+    end
 
+    def create
+        @posting = Posting.new(posting_params)
+        if @posting.save
+            redirect_to @posting
+        else
+            render 'new'
+        end
     end
 
     private
@@ -22,6 +31,3 @@ class PostingsController < ApplicationController
       params.require(:type, :name, :subject, :contact).permit(:description, :price, availability)
     end
   end
-
-
-end
