@@ -1,5 +1,7 @@
-# user stories for user login
+# user stories for user signup
 Feature: User Sign Up
+
+  As a potential user, I need to be able to sign up
 
   Scenario: Successful sign up
     Given I am on the sign-up page

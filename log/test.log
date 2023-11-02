@@ -112,3 +112,1370 @@ Processing by Devise::RegistrationsController#create as HTML
   Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 3045)
 Completed 422 Unprocessable Entity in 6ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 4443)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "postings"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "postings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "type_of" varchar, "name" varchar, "price" float, "subject" varchar, "description" text, "availability" varchar, "contact" varchar)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_postings_on_user_id" ON "postings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "first_name" varchar, "last_name" varchar, "school" varchar, "year" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apostings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer DEFAULT NULL, "type_of" varchar DEFAULT NULL, "name" varchar DEFAULT NULL, "price" float DEFAULT NULL, "subject" varchar DEFAULT NULL, "description" text DEFAULT NULL, "availability" varchar DEFAULT NULL, "contact" varchar DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_apostings_on_user_id" ON "apostings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "apostings" ("id","user_id","type_of","name","price","subject","description","availability","contact")
+                     SELECT "id","user_id","type_of","name","price","subject","description","availability","contact" FROM "postings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "postings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "postings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer DEFAULT NULL, "type_of" varchar DEFAULT NULL, "name" varchar DEFAULT NULL, "price" float DEFAULT NULL, "subject" varchar DEFAULT NULL, "description" text DEFAULT NULL, "availability" varchar DEFAULT NULL, "contact" varchar DEFAULT NULL, CONSTRAINT "fk_rails_c3f025f07e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_postings_on_user_id" ON "postings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "postings" ("id","user_id","type_of","name","price","subject","description","availability","contact")
+                     SELECT "id","user_id","type_of","name","price","subject","description","availability","contact" FROM "apostings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "apostings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231102024757)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231031023949);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2023-11-02 17:35:34.005335', '2023-11-02 17:35:34.005337') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '4843299b0f2550acea6f282a13dc8478f84a8797', '2023-11-02 17:35:34.005636', '2023-11-02 17:35:34.005636') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:37:50 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 94.3ms | Allocations: 101767)
+Completed 200 OK in 117ms (Views: 101.5ms | ActiveRecord: 0.3ms | Allocations: 123795)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$ScUr1geReWE8P7js3CoDYuv4.yRLyQeSvQBaRUle5Uq6lWs3EX1Wi"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:37:50.989334"], ["updated_at", "2023-11-02 17:37:50.989334"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:37:50 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 4ms (ActiveRecord: 0.1ms | Allocations: 2315)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1744)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 624)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 1875)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.1ms | Allocations: 3977)
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1312)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2505)
+Completed 200 OK in 85ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 14230)
+Started POST "/postings" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by PostingsController#create as HTML
+  Parameters: {"posting"=>{"type_of"=>"User", "name"=>"TestMan", "subject"=>"CS", "description"=>"Experienced tutor", "price"=>"1000", "availability"=>"Anytime", "contact"=>"0109919241"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPosting Create (0.2ms)[0m  [1m[32mINSERT INTO "postings" ("user_id", "type_of", "name", "price", "subject", "description", "availability", "contact") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["type_of", "User"], ["name", "TestMan"], ["price", 1000.0], ["subject", "CS"], ["description", "Experienced tutor"], ["availability", "Anytime"], ["contact", "0109919241"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/postings
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 2050)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1456)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2126)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2149)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 2596)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$fs6eu.t/.fNH6t.UeZKLmOXAVDjH.6u5EHcrF9EkR1JVuVqP7xNfi"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:37:51.126830"], ["updated_at", "2023-11-02 17:37:51.126830"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 813)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 569)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2041)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2147)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 2592)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$NkmMD9QYN9QM8CZpy5mj1.fRgBpdO7i5D6DV8vLhzPUY/KBfNSlsm"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:37:51.140373"], ["updated_at", "2023-11-02 17:37:51.140373"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 976)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2152)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2540)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 2793)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 3524)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test@example.com"], ["encrypted_password", "$2a$04$Ni846pMd3Hp9rWEVBH/35.oVSVv9sSkriJ0Q3kA2gsdVlr4icH7Lm"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:37:51.159026"], ["updated_at", "2023-11-02 17:37:51.159026"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 3ms (ActiveRecord: 0.3ms | Allocations: 1493)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 562)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2032)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2106)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 2505)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:37:51 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 476)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1862)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 3038)
+Completed 422 Unprocessable Entity in 5ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 4418)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 35568)
+Completed 200 OK in 36ms (Views: 24.2ms | ActiveRecord: 0.3ms | Allocations: 57595)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$qmAwIRAwClgT9IOrkUyDwuUAbAFhOIkuqPLqL5UGdQlqFSckW5cpS"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:38:15.902260"], ["updated_at", "2023-11-02 17:38:15.902260"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 4ms (ActiveRecord: 0.1ms | Allocations: 2313)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1740)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 622)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1873)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 3954)
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1313)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2506)
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 14246)
+Started POST "/postings" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by PostingsController#create as HTML
+  Parameters: {"posting"=>{"type_of"=>"User", "name"=>"TestMan", "subject"=>"CS", "description"=>"Experienced tutor", "price"=>"1000", "availability"=>"Anytime", "contact"=>"0109919241"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPosting Create (0.2ms)[0m  [1m[32mINSERT INTO "postings" ("user_id", "type_of", "name", "price", "subject", "description", "availability", "contact") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["type_of", "User"], ["name", "TestMan"], ["price", 1000.0], ["subject", "CS"], ["description", "Experienced tutor"], ["availability", "Anytime"], ["contact", "0109919241"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/postings
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 2074)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1449)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 2127)
+Started GET "/postings/1" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 330)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1506)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 2595)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2149)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 2595)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$gX/BHZVuVhieoXGmSnDVd.PF/ai0zYOhlwrP6dXatUlHpux64fYTe"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:38:15.960895"], ["updated_at", "2023-11-02 17:38:15.960895"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 814)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 575)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2020)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 2147)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 2592)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$N9SWEeW.w/YKSzYqtMBtnufkCjv1jEd3d..cHhK2dsSSGNQUa5J5i"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:38:15.972186"], ["updated_at", "2023-11-02 17:38:15.972186"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 976)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2152)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 2540)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2793)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 3524)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test@example.com"], ["encrypted_password", "$2a$04$.wPxUc/001Mj1GMKcI1.teIJoGBJ9d6w82fIptIr1Ngf3Vs5w6M7K"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:38:15.987650"], ["updated_at", "2023-11-02 17:38:15.987650"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.2ms | Allocations: 1493)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 547)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2017)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2106)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 2505)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:38:15 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 476)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1862)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 3038)
+Completed 422 Unprocessable Entity in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 4418)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 35405)
+Completed 200 OK in 37ms (Views: 25.6ms | ActiveRecord: 0.3ms | Allocations: 57432)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$pJvmJFZUUHeQe/8gI2p1K.UUG/xaRCRLFZJPr0Hj78JD8LaefmHFy"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:44:23.718742"], ["updated_at", "2023-11-02 17:44:23.718742"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 4ms (ActiveRecord: 0.0ms | Allocations: 2313)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1740)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 622)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1873)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 3963)
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1313)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2506)
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 14249)
+Started POST "/postings" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by PostingsController#create as HTML
+  Parameters: {"posting"=>{"type_of"=>"User", "name"=>"TestMan", "subject"=>"CS", "description"=>"Experienced tutor", "price"=>"1000", "availability"=>"Anytime", "contact"=>"0109919241"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPosting Create (0.1ms)[0m  [1m[32mINSERT INTO "postings" ("user_id", "type_of", "name", "price", "subject", "description", "availability", "contact") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["type_of", "User"], ["name", "TestMan"], ["price", 1000.0], ["subject", "CS"], ["description", "Experienced tutor"], ["availability", "Anytime"], ["contact", "0109919241"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/postings
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2062)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1450)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2128)
+Started GET "/postings/1" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 330)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1506)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 2604)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 2150)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 2596)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$pDUzhHDiSPWV/fMk6num4u07u3HTtIkfY2K5xW1hhhAQnQx4KnToK"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:44:23.789908"], ["updated_at", "2023-11-02 17:44:23.789908"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 816)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 558)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2041)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2147)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 2592)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$/jTAWE4u4PFDv0PSRILbGOtu8zUAmfw/B4xGXXnhR4V7mdZYMDQT2"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:44:23.801312"], ["updated_at", "2023-11-02 17:44:23.801312"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 976)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2152)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 2540)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2793)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 3524)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test@example.com"], ["encrypted_password", "$2a$04$2ovNgL9MA3c.jZN.NkJJmOh1y7nckKoSJSMs3fLdNb/XHc.xK30iW"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:44:23.817289"], ["updated_at", "2023-11-02 17:44:23.817289"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 3ms (ActiveRecord: 0.3ms | Allocations: 1493)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 577)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2053)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2106)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 2505)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:44:23 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 476)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1862)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 3038)
+Completed 422 Unprocessable Entity in 5ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 4418)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 35527)
+Completed 200 OK in 36ms (Views: 24.3ms | ActiveRecord: 0.2ms | Allocations: 57560)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$iir1roXex3ny7L.mpPpJqO1dUlGBF1RzRro8o0IOgryiWoVn4eM7e"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:45:09.186640"], ["updated_at", "2023-11-02 17:45:09.186640"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 4ms (ActiveRecord: 0.0ms | Allocations: 2313)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 1743)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 622)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1873)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 3969)
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1314)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 2507)
+Completed 200 OK in 8ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 14224)
+Started POST "/postings" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by PostingsController#create as HTML
+  Parameters: {"posting"=>{"type_of"=>"User", "name"=>"TestMan", "subject"=>"CS", "description"=>"Experienced tutor", "price"=>"1000", "availability"=>"Anytime", "contact"=>"0109919241"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPosting Create (0.2ms)[0m  [1m[32mINSERT INTO "postings" ("user_id", "type_of", "name", "price", "subject", "description", "availability", "contact") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["type_of", "User"], ["name", "TestMan"], ["price", 1000.0], ["subject", "CS"], ["description", "Experienced tutor"], ["availability", "Anytime"], ["contact", "0109919241"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/postings
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2062)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1450)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 2113)
+Started GET "/postings/1" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 330)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1506)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 2583)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2150)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 2596)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$AZBZ9dQ6mVGr37fF62AFEOAUYIkud32jEfSqiW1I63aaaFeshuoL2"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:45:09.242686"], ["updated_at", "2023-11-02 17:45:09.242686"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 816)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 579)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2044)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 2147)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 2592)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$a3xnNuzo.M6zd8JECc3LzO1nYmQRoisr6gl3sNY5Y52Krk6qiSDeG"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:45:09.253902"], ["updated_at", "2023-11-02 17:45:09.253902"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 976)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2152)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 2540)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2793)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 3524)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test@example.com"], ["encrypted_password", "$2a$04$6t43kxyUXs2H/RqhmoARf.ugb5gRE8Ebiogjycg1ceYxNSUwtc8sW"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:45:09.270506"], ["updated_at", "2023-11-02 17:45:09.270506"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.2ms | Allocations: 1493)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 574)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2044)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2106)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 2505)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:45:09 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 476)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1862)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 3038)
+Completed 422 Unprocessable Entity in 3ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 4418)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 35492)
+Completed 200 OK in 37ms (Views: 25.0ms | ActiveRecord: 0.2ms | Allocations: 57525)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$JMUmI69WhlmDCuICvSYqXOxJrkkYCkdtSlXvwWypTv3yZRQcAiOoe"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:46:46.237443"], ["updated_at", "2023-11-02 17:46:46.237443"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 4ms (ActiveRecord: 0.1ms | Allocations: 2313)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 1761)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 622)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1873)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 3993)
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1313)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2506)
+Completed 200 OK in 9ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 14229)
+Started POST "/postings" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by PostingsController#create as HTML
+  Parameters: {"posting"=>{"type_of"=>"User", "name"=>"TestMan", "subject"=>"CS", "description"=>"Experienced tutor", "price"=>"1000", "availability"=>"Anytime", "contact"=>"0109919241"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPosting Create (0.1ms)[0m  [1m[32mINSERT INTO "postings" ("user_id", "type_of", "name", "price", "subject", "description", "availability", "contact") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["type_of", "User"], ["name", "TestMan"], ["price", 1000.0], ["subject", "CS"], ["description", "Experienced tutor"], ["availability", "Anytime"], ["contact", "0109919241"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/postings
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 2056)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1450)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2131)
+Started GET "/postings/1" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 330)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1506)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2585)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2150)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2596)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$4kHXRsGiV9YSsbnWVYrl2uRJ3PHAbijMToAWF.v8BgVrCZROnSFMC"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:46:46.293269"], ["updated_at", "2023-11-02 17:46:46.293269"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 816)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 558)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2065)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 2147)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 2592)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$1MuaJhHF1z4vy9qBMxVvbOL4ebjB8MRi6i.pXrJYfr0aWuinCHs3a"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:46:46.304020"], ["updated_at", "2023-11-02 17:46:46.304020"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 976)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2152)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 2540)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2793)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 3524)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test@example.com"], ["encrypted_password", "$2a$04$7nVZ7UqFUNXgIE.qkhpqB.wNGcKu.2iRksP6koAZ8eIquytXn1Y7y"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:46:46.318451"], ["updated_at", "2023-11-02 17:46:46.318451"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.2ms | Allocations: 1493)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 583)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2047)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2106)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 2505)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:46:46 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 476)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1862)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 3038)
+Completed 422 Unprocessable Entity in 3ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 4418)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:48:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 35567)
+Completed 200 OK in 38ms (Views: 24.9ms | ActiveRecord: 0.2ms | Allocations: 57594)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$6ZXwjgQage6a3Rv5oh2W0.OXv7gV7b4efu9mEQNQP85dPqOQZNCla"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:48:28.017526"], ["updated_at", "2023-11-02 17:48:28.017526"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 6ms (ActiveRecord: 0.0ms | Allocations: 2313)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 1716)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 622)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1873)
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 3960)
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1313)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 2506)
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 14234)
+Started POST "/postings" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by PostingsController#create as HTML
+  Parameters: {"posting"=>{"type_of"=>"User", "name"=>"TestMan", "subject"=>"CS", "description"=>"Experienced tutor", "price"=>"1000", "availability"=>"Anytime", "contact"=>"0109919241"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPosting Create (0.1ms)[0m  [1m[32mINSERT INTO "postings" ("user_id", "type_of", "name", "price", "subject", "description", "availability", "contact") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["type_of", "User"], ["name", "TestMan"], ["price", 1000.0], ["subject", "CS"], ["description", "Experienced tutor"], ["availability", "Anytime"], ["contact", "0109919241"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/postings
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2065)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1450)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 2122)
+Started GET "/postings/1" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 330)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1506)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2607)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2150)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2596)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$vLdIYz1vd0KXvoJeEf4v0.pf26O//Sr3fHvpO2LFmM9f847mwcNty"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:48:28.086695"], ["updated_at", "2023-11-02 17:48:28.086695"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 816)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 558)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2074)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2147)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 2592)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$XPR0KNtPDBr0mmyymGCaWOIMWSld8ATlxrV72qB198YQRWMEzsyEO"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:48:28.099820"], ["updated_at", "2023-11-02 17:48:28.099820"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 976)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2152)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 2540)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2793)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 3524)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test@example.com"], ["encrypted_password", "$2a$04$xnv3yDIVuByrA8uya4D6UuA7uHTp7KIe2ECES7HbY3U1Zp/uY.w6i"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:48:28.116403"], ["updated_at", "2023-11-02 17:48:28.116403"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.2ms | Allocations: 1493)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 565)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2050)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2106)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 2505)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:48:28 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 476)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1862)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 3038)
+Completed 422 Unprocessable Entity in 3ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 4418)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:49:28 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 35569)
+Completed 200 OK in 41ms (Views: 30.2ms | ActiveRecord: 0.3ms | Allocations: 57594)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$gx/pS8OA5QEFf7AoT/zPVe4mcvEdJrPW5bGgD1zFijl2c3BDM7FKC"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:49:29.012459"], ["updated_at", "2023-11-02 17:49:29.012459"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 4ms (ActiveRecord: 0.0ms | Allocations: 2315)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 1744)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 623)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1874)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 3982)
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1310)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2491)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 14217)
+Started POST "/postings" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by PostingsController#create as HTML
+  Parameters: {"posting"=>{"type_of"=>"User", "name"=>"TestMan", "subject"=>"CS", "description"=>"Experienced tutor", "price"=>"1000", "availability"=>"Anytime", "contact"=>"0109919241"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPosting Create (0.1ms)[0m  [1m[32mINSERT INTO "postings" ("user_id", "type_of", "name", "price", "subject", "description", "availability", "contact") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["type_of", "User"], ["name", "TestMan"], ["price", 1000.0], ["subject", "CS"], ["description", "Experienced tutor"], ["availability", "Anytime"], ["contact", "0109919241"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/postings
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2052)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1462)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2142)
+Started GET "/postings/1" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 332)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1508)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 2576)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2149)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 2595)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$Kn91Pr51IRzUK5aDnBDvq.g1WwDNrnHyfvLYS2U6Tqj2DGSi6IFQy"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:49:29.060882"], ["updated_at", "2023-11-02 17:49:29.060882"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 813)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 569)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1366)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2056)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 2147)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 2592)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$04$MB2Uir6im/Xbw8i/aZgcN.ntCsYO7t5ChEMtvLr/iwXof1lPZaPO6"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:49:29.072269"], ["updated_at", "2023-11-02 17:49:29.072269"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 976)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 2153)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 2541)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.1ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2793)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 3524)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test@example.com"], ["encrypted_password", "$2a$04$cevnxmtfXtmYgOh9PQLdCu/bpNC0CFLl0JqzFc8PnqYyiDosPvdxK"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-02 17:49:29.117734"], ["updated_at", "2023-11-02 17:49:29.117734"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 3ms (ActiveRecord: 0.3ms | Allocations: 1497)
+Started GET "/" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/postings
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 594)
+Started GET "/postings" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  Rendered postings/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1379)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 2052)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2106)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 2505)
+Started POST "/users" for 127.0.0.1 at 2023-11-02 13:49:29 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 476)
+  Rendered devise/shared/_links.html.erb (Duration: 10.2ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 21.1ms | Allocations: 1862)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 3038)
+Completed 422 Unprocessable Entity in 24ms (Views: 21.8ms | ActiveRecord: 0.2ms | Allocations: 4418)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m

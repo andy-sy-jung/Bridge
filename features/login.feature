@@ -1,6 +1,9 @@
 # user stories for user log in and log out
 Feature: User Log In and Log Out
 
+  As a registered user, I need to be able to log in
+  As an unregistered user, I cannot log in
+
   Background: Existing Users
     Given I am on the log-in page
     Given I have a registered user with the following credentials:
