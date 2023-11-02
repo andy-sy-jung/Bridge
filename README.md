@@ -6,9 +6,9 @@ Eithan Jahja-Loo eij2108
 To Start and Test LocallY
 
 git clone https://github.com/andy-sy-jung/Bridge.git
+bundle install
 rail db:migrate
 rake db:seed
-bundle install
 rails server -b 0.0.0.0
 
 https://guarded-escarpment-94993-1fc742c1d1ba.herokuapp.com
