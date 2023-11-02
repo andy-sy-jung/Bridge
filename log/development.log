@@ -2237,3 +2237,182 @@ Processing by PostingsController#index as HTML
 Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 0.3ms | Allocations: 4210)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-01 22:53:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms | Allocations: 2099)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-01 22:53:15 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3119)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | Allocations: 37204)
+Completed 200 OK in 85ms (Views: 56.1ms | ActiveRecord: 0.6ms | Allocations: 58469)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-01 22:53:19 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1712)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3645)
+Completed 200 OK in 19ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 4576)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-11-01 22:53:28 -0400
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"rutvikrau21@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rutvikrau21@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 459)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 126)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1907)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3832)
+Completed 422 Unprocessable Entity in 364ms (Views: 4.0ms | ActiveRecord: 1.8ms | Allocations: 13110)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-01 22:53:30 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1043)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 2967)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 3618)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-01 22:53:39 -0400
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"rutvikrau21@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "rutvikrau21@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 311ms (ActiveRecord: 0.3ms | Allocations: 3902)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-01 22:53:39 -0400
+Processing by UsersController#index as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/postings
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1621)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-01 22:53:39 -0400
+Processing by PostingsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  ↳ app/views/postings/index.html.erb:16
+  Rendered postings/index.html.erb within layouts/application (Duration: 11.2ms | Allocations: 12139)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 14142)
+Completed 200 OK in 21ms (Views: 14.1ms | ActiveRecord: 0.4ms | Allocations: 17783)
+
+
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-01 22:53:48 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1307)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3269)
+Completed 200 OK in 11ms (Views: 6.5ms | ActiveRecord: 0.1ms | Allocations: 4979)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-01 22:53:49 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  ↳ app/views/postings/index.html.erb:16
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 690)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2622)
+Completed 200 OK in 11ms (Views: 3.9ms | ActiveRecord: 0.2ms | Allocations: 4260)
+
+
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-01 22:54:12 -0400
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 749)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2677)
+Completed 200 OK in 14ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 4311)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-11-01 22:54:31 -0400
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "posting"=>{"type_of"=>"dominic lee", "name"=>"dom", "subject"=>"cs", "description"=>"sjjs", "price"=>"2899", "availability"=>"always", "contact"=>"333"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1612)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-01 22:54:31 -0400
+Processing by UsersController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/postings
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1532)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-01 22:54:31 -0400
+Processing by PostingsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  ↳ app/views/postings/index.html.erb:16
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 689)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2617)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.1ms | Allocations: 4247)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-01 22:54:36 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  ↳ app/views/postings/index.html.erb:16
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 689)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2617)
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 0.2ms | Allocations: 4257)
+
+
+Started GET "/postings/4" for 127.0.0.1 at 2023-11-01 22:55:53 -0400
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 336)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2262)
+Completed 200 OK in 11ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 5013)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-01 22:55:55 -0400
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings"[0m
+  ↳ app/views/postings/index.html.erb:16
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 689)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2617)
+Completed 200 OK in 9ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 4247)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
