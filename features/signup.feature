@@ -5,10 +5,10 @@ Feature: User Sign Up
     Given I am on the sign-up page
     When I fill in the sign-up form correctly
     And I click the "Sign up" button
-    Then I should see "Welcome! You have signed up successfully."
+    Then I should see "Welcome to Bridge"
 
   Scenario: Unsuccessful sign up
     Given I am on the sign-up page
     When I fill in the sign-up form incorrectly
     And I click the "Sign up" button
-    Then I should see "Error"
+    Then I should see "error"
