@@ -7,6 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+if User.count.zero?
+    User.create!( email: "user@example.com", password: "password")
+    # Add more user creation logic as per your user model requirements
+  end
 Posting.delete_all
 postings = [{:user_id => User.first.id, :type_of => "Professional", :name => "Rutvik Rau, Boss Man", :price => 2000.0, :subject => "CS", :description => "BIG MAN WILLING TO DO BIG THINGS", :availability => "Never", :contact => "000000"},
             {:user_id => User.first.id, :type_of => "Professional", :name => "Andrew Jung", :price => 0.0, :subject => "CS", :description => "I am professional, not scammer", :availability => "Never", :contact => "000000"},
