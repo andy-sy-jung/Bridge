@@ -2906,3 +2906,35 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 69ms (Views: 51.6ms | ActiveRecord: 0.0ms | Allocations: 56088)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-01 23:47:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms | Allocations: 3290)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-01 23:47:17 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3109)
+  Rendered layout layouts/application.html.erb (Duration: 48.7ms | Allocations: 36871)
+Completed 200 OK in 79ms (Views: 55.6ms | ActiveRecord: 1.4ms | Allocations: 57094)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-01 23:50:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms | Allocations: 3282)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-01 23:50:34 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3093)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 36944)
+Completed 200 OK in 72ms (Views: 54.6ms | ActiveRecord: 0.4ms | Allocations: 57156)
+
+

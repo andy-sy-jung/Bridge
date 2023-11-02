@@ -71,6 +71,10 @@ group :test do
   gem "selenium-webdriver"
 end
 
+group :development do
+  gem 'rerun'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
