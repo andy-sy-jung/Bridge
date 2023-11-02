@@ -1,26 +1,20 @@
-# README
+Erica McGillicuddy em3489
+Rutvik Rau rr3366
+Andrew Jung asj2156
+Eithan Jahja-Loo eij2108
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To Start and Test LocallY
 
-Things you may want to cover:
+git clone https://github.com/andy-sy-jung/Bridge.git
+rail db:migrate
+rake db:seed
+bundle install
+rails server -b 0.0.0.0
 
-* Ruby version
+https://guarded-escarpment-94993-1fc742c1d1ba.herokuapp.com
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-rails db:create
-rails db:migrate
-
-* Start Server
-rails server   
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+Create an account, we save the info in a pg databse
+Login 
+You will now see other postings of people and their services, interact with them by looking into their info
+Create a new posting for you and the services you offer. 
 
