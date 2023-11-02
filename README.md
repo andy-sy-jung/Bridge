@@ -1,20 +1,31 @@
-Erica McGillicuddy em3489
-Rutvik Rau rr3366
-Andrew Jung asj2156
-Eithan Jahja-Loo eij2108
+# Team Members
 
-To Start and Test Locally
+- Erica McGillicuddy, em3489
+- Rutvik Rau, rr3366
+- Andrew Jung, asj2156
+- Eithan Jahja-Loo, eij2108
 
-git clone https://github.com/andy-sy-jung/Bridge.git
-bundle install
-rail db:migrate
-rake db:seed
-rails server -b 0.0.0.0
+## To Start and Test Locally
 
-https://guarded-escarpment-94993-1fc742c1d1ba.herokuapp.com
+- git clone https://github.com/andy-sy-jung/Bridge.git
+- bundle install --without production
+- rail db:migrate
+- rake db:seed
+- rails server -b 0.0.0.0
 
-Create an account, we save the info in a pg databse
-Login 
-You will now see other postings of people and their services, interact with them by looking into their info
-Create a new posting for you and the services you offer. 
+**Heroku Link**: https://guarded-escarpment-94993-1fc742c1d1ba.herokuapp.com
 
+**Basic Features**
+
+- Creating an account, we save the info in a pg databse
+- Login/Logout
+- You will now see other postings of people and their services, interact with them by looking into their info
+- Creating a new posting for you and the services you offer.
+
+**TO DO**
+
+- Add post creation validation
+- Limiting posts for each user
+- Add editing feature for posts
+- Add deletion method for posts
+- Make UI pretty
