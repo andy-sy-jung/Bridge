@@ -3,7 +3,7 @@ Rutvik Rau rr3366
 Andrew Jung asj2156
 Eithan Jahja-Loo eij2108
 
-To Start and Test LocallY
+To Start and Test Locally
 
 git clone https://github.com/andy-sy-jung/Bridge.git
 bundle install
