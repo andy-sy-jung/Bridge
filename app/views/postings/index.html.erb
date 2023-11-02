@@ -16,7 +16,7 @@
     <% @postings.each do |p| %>
       <tr>
         <td>
-          <%= p.type %>
+          <%= p.type_of %>
         </td>
         <td>
           <%= p.name %>
@@ -28,13 +28,13 @@
           <%= p.price %>
         </td>
         <td>
-          <%= link_to "More about this #{p.type}", posting_path(p) %>
+          <%= link_to "More about this #{p.type_of}", posting_path(p) %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Add new posting', new_users_path, :class => 'btn btn-primary' %>
+<%= link_to 'Add new posting', new_posting_path, :class => 'btn btn-primary' %>
 
 <%= button_to(
         "Log Out",

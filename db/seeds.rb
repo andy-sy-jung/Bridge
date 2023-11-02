@@ -7,10 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-postings = [{:id => 123, :description => "Rutvik Rau, Boss Man", :price => 2000, :availability => "ALWAYS"},
-            {:id => 124, :description => "Andrew Jung", :price => 0, :availability => "NEVER"},
-            {:id => 123, :description => "Erica McGillicuddy", :price => 2000, :availability => "ALWAYS"},
-            {:id => 123, :description => "Eithan Jahja", :price => 2000, :availability => "ALWAYS"},
+Posting.delete_all
+postings = [{:user_id => 123, :type_of => "Professional", :name => "Rutvik Rau, Boss Man", :price => 2000.0, :subject => "CS", :description => "ALWAYS", :user =>User.first},
+            {:user_id => 124, :type_of => "Professional", :name => "Andrew Jung", :price => 0.0, :subject => "CS", :description => "NEVER", :user =>User.first},
+            {:user_id => 125, :type_of => "Professional", :name => "Erica McGillicuddy", :price => 2000.0, :subject => "CS", :description => "ALWAYS", :user =>User.first},
+            {:user_id => 126, :type_of => "Professional", :name => "Eithan Jahja", :price => 2000.0, :subject => "CS", :description => "ALWAYS", :user =>User.first},
 ]
 
 postings.each do |posting|
