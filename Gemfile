@@ -5,8 +5,7 @@ ruby "3.2.2"
 gem "rails", "~> 7.1.1"
 
 # Use PostgreSQL in production
-gem 'pg', group: :production
-
+gem 'pg'
 # Use sqlite3 for development and testing
 gem 'sqlite3', group: [:development, :test]
 
