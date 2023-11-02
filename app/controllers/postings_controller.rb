@@ -28,6 +28,6 @@ class PostingsController < ApplicationController
     # Making "internal" methods private is not required, but is a common practice.
     # This helps make clear which methods respond to requests, and which ones do not.
     def posting__params
-      params.require(:type, :name, :subject, :contact).permit(:description, :price, availability)
+      params.require(:posting).permit(:description, :price, :availability)
     end
   end

@@ -27,4 +27,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_023949) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "posting", force: :cascade do |t|
+    t.integer "id", null: false
+    t.string "description"
+    t.float "price"
+    t.string "availability"
+  end
+
+
 end
