@@ -1,6 +1,6 @@
 <h2>Create New Posting</h2>
 
-<%= form_tag users_path, :class => 'form' do %>
+<%= form_for @posting, url: postings_path, :class => 'form' do %>
   <%= label :posting, :type_of, 'User/Professional', :class => 'col-form-label' %>
   <%= text_field :posting, :type_of, :class => 'form-control' %>
   <%= label :posting, :name, 'Name', :class => 'col-form-label' %>

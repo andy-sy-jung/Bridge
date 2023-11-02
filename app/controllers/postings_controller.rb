@@ -16,18 +16,20 @@ class PostingsController < ApplicationController
     end
 
     def create
-        @posting = Posting.new(posting_params)
-        if @posting.save
-            redirect_to @posting
-        else
-            render 'new'
-        end
+      @posting = Posting.new(posting_params)
+      @posting.user = current_user # Associate the posting with the currently logged-in user
+  
+      if @posting.save
+        redirect_to postings_path
+      else
+        render :new
+      end
     end
 
     private
     # Making "internal" methods private is not required, but is a common practice.
     # This helps make clear which methods respond to requests, and which ones do not.
-    def posting__params
-      params.require(:posting).permit(:description, :price, :availability)
+    def posting_params
+      params.require(:posting).permit(:name, :description, :price, :availability, :subject, :availability, :contact, :type_of)
     end
   end
