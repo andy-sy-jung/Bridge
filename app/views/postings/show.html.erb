@@ -1,9 +1,9 @@
-<h2>Details about <em><%= @posting.name 's posting' %></em></h2>
+<h2>Details about <em><%= @posting.name %>'s posting</em></h2>
 
 <ul id="details">
   <li>
     Type:
-    <%= @posting.type %>
+    <%= @posting.type_of %>
   </li>
   <li>
     Subject:
@@ -33,5 +33,5 @@
 </p>
 
 <div class="row">
-  <%= link_to 'Back to full list', users_path, :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Back to full list', postings_path, :class => 'btn btn-primary col-2' %>
 </div>

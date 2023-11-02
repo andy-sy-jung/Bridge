@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_02_021116) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_02_022038) do
   create_table "postings", force: :cascade do |t|
     t.integer "user_id"
     t.string "type_of"
@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_02_021116) do
     t.string "subject"
     t.float "price"
     t.text "description"
+    t.string "availability"
+    t.string "contact"
   end
 
   create_table "users", force: :cascade do |t|

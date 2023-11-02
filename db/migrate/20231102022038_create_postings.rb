@@ -7,6 +7,8 @@ class CreatePostings < ActiveRecord::Migration[7.1]
       t.string "subject"
       t.float "price"
       t.text "description"
+      t.string "availability"
+      t.string "contact"
     end
   end
 end
