@@ -5,11 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: storage/development.sqlite3
+  database: db/development.sqlite3  # Moved to db/ folder for convention
 
 test:
   <<: *default
-  database: storage/test.sqlite3
+  database: db/test.sqlite3  # Moved to db/ folder for convention
 
 production:
   adapter: postgresql
