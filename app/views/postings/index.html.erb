@@ -4,14 +4,21 @@
 <h2>Postings</h2>
 
 <%= form_tag postings_path, method: :get, id: 'types_form' do %>
-  Include:
+  Include Posts Made By:
   <% @all_types.each do |t| %>
     <div class="form-check  form-check-inline">
       <%= label_tag "types[#{t}]", t, class: 'form-check-label' %>
       <%= check_box_tag "types[#{t}]", "1",  @types_to_show.include?(t), class: 'form-check-input' %>
     </div>
   <% end %>
-  <%= submit_tag 'Refresh', id: 'types_submit', class: 'btn btn-primary' %>
+  Include Subjects:
+  <% @all_subjects.each do |s| %>
+    <div class="form-check  form-check-inline">
+      <%= label_tag "subjects[#{s}]", s, class: 'form-check-label' %>
+      <%= check_box_tag "subjects[#{s}]", "1",  @subjects_to_show.include?(s), class: 'form-check-input' %>
+    </div>
+  <% end %>
+  <%= submit_tag 'Refresh', class: 'btn btn-primary' %>
 <% end %>
 
 <table class="table table-striped col-md-12" id="postings">

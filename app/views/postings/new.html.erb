@@ -2,13 +2,13 @@
 
 <%= form_for @posting, url: postings_path, :class => 'form' do %>
   <%= label :posting, :type_of, 'Type: ', :class => 'col-form-label'  %>
-  <%= select :posting, :type_of, ['User', 'Professional'], {}, {:class => 'form-control col-1'} %>
+  <%= select :posting, :type_of, Posting.all_types, {}, {:class => 'form-control col-1'} %>
+  <br/><br/>
+  <%= label :posting, :subject, 'Subject: ', :class => 'col-form-label'  %>
+  <%= select :posting, :subject, Posting.all_subjects, {}, {:class => 'form-control col-1'} %>
   <br/><br/>
   <%= label :posting, :name, 'Name: ', :class => 'col-form-label' %>
   <%= text_field :posting, :name, :class => 'form-control' %>
-  <br/><br/>
-  <%= label :posting, :subject, 'Subject: ', :class => 'col-form-label' %>
-  <%= text_field :posting, :subject, :class => 'form-control' %>
   <br/><br/>
   <%= label :posting, :description, 'Description: ', :class => 'col-form-label' %>
   <%= text_field :posting, :description, :class => 'form-control' %>

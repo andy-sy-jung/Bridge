@@ -1,19 +1,24 @@
 class PostingsController < ApplicationController
 
     attr_accessor :all_types
+    attr_accessor :all_subjects
     attr_accessor :types_to_show
+    attr_accessor :subjects_to_show
 
     before_action :authenticate_user!
     before_action :init
 
     def init
       @all_types = Posting.all_types
+      @all_subjects = Posting.all_subjects
       @types_to_show = ''
+      @subjects_to_show = ''
     end
     
     def index
       update_types_to_show
-        @postings = Posting.with_types(@types_to_show)
+      update_subjects_to_show
+      @postings = Posting.with_categories(@types_to_show, @subjects_to_show)
     end
 
     def update_types_to_show
@@ -21,6 +26,14 @@ class PostingsController < ApplicationController
         @types_to_show = Posting.all_types
       else
         @types_to_show = params[:types].keys.map(&:to_s)
+      end
+    end
+
+    def update_subjects_to_show
+      if params[:subjects].nil?
+        @subjects_to_show = Posting.all_subjects
+      else
+        @subjects_to_show = params[:subjects].keys.map(&:to_s)
       end
     end
 
