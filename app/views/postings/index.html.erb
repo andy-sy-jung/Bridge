@@ -11,6 +11,7 @@
       <%= check_box_tag "types[#{t}]", "1",  @types_to_show.include?(t), class: 'form-check-input' %>
     </div>
   <% end %>
+  <br/>
   Include Subjects:
   <% @all_subjects.each do |s| %>
     <div class="form-check  form-check-inline">
@@ -18,6 +19,7 @@
       <%= check_box_tag "subjects[#{s}]", "1",  @subjects_to_show.include?(s), class: 'form-check-input' %>
     </div>
   <% end %>
+  <br/>
   <%= submit_tag 'Refresh', class: 'btn btn-primary' %>
 <% end %>
 
