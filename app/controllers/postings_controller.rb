@@ -1,8 +1,27 @@
 class PostingsController < ApplicationController
+
+    attr_accessor :all_types
+    attr_accessor :types_to_show
+
     before_action :authenticate_user!
+    before_action :init
+
+    def init
+      @all_types = Posting.all_types
+      @types_to_show = ''
+    end
     
     def index
-        @postings = Posting.all
+      update_types_to_show
+        @postings = Posting.with_types(@types_to_show)
+    end
+
+    def update_types_to_show
+      if params[:types].nil?
+        @types_to_show = Posting.all_types
+      else
+        @types_to_show = params[:types].keys.map(&:to_s)
+      end
     end
 
     def show
