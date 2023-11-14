@@ -103,4 +103,43 @@ RSpec.describe PostingsController, type: :controller do
       expect(response).to render_template(:new)
     end
   end
+
+  describe '#update_types_to_show' do
+    it 'sets @types_to_show to all types if params[:types] is nil' do
+      controller.params[:types] = nil
+
+      controller.send(:update_types_to_show)
+
+      expect(controller.instance_variable_get(:@types_to_show)).to eq(Posting.all_types)
+    end
+
+    it 'sets @types_to_show to params[:types] keys as strings' do
+      controller.params[:types] = { type1: '1', type2: '1' }
+
+      controller.send(:update_types_to_show)
+
+      expect(controller.instance_variable_get(:@types_to_show)).to eq(['type1', 'type2'])
+    end
+  end
+
+  describe '#update_subjects_to_show' do
+    it 'sets @subjects_to_show to all subjects if params[:subjects] is nil' do
+      controller.params[:subjects] = nil
+
+      controller.send(:update_subjects_to_show)
+
+      expect(controller.instance_variable_get(:@subjects_to_show)).to eq(Posting.all_subjects)
+    end
+
+    it 'sets @subjects_to_show to params[:subjects] keys as strings' do
+      controller.params[:subjects] = { subject1: '1', subject2: '1' }
+
+      controller.send(:update_subjects_to_show)
+
+      expect(controller.instance_variable_get(:@subjects_to_show)).to eq(['subject1', 'subject2'])
+    end
+  end
+
+
+
 end

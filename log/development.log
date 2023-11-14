@@ -4402,3 +4402,111 @@ Processing by PostingsController#index as HTML
 Completed 200 OK in 157ms (Views: 134.8ms | ActiveRecord: 0.8ms | Allocations: 53002)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-14 00:50:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 69ms (ActiveRecord: 0.8ms | Allocations: 24305)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 00:50:41 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 27.1ms | Allocations: 13188)
+  Rendered layout layouts/application.html.erb (Duration: 104.1ms | Allocations: 47226)
+Completed 200 OK in 135ms (Views: 110.3ms | ActiveRecord: 0.9ms | Allocations: 53380)
+
+
+Started GET "/postings?types%5BUser%5D=1&types%5BProfessional%5D=1&subjects%5BRecruitment%5D=1&subjects%5BCS%5D=1&subjects%5BMath%5D=1&subjects%5BPhysics%5D=1&subjects%5BChemistry%5D=1&subjects%5BBiology%5D=1&subjects%5BEnglish%5D=1&subjects%5BLanguages%5D=1&subjects%5BOther%5D=1&commit=Refresh" for 127.0.0.1 at 2023-11-14 00:50:44 -0500
+Processing by PostingsController#index as HTML
+  Parameters: {"types"=>{"User"=>"1", "Professional"=>"1"}, "subjects"=>{"Recruitment"=>"1", "CS"=>"1", "Math"=>"1", "Physics"=>"1", "Chemistry"=>"1", "Biology"=>"1", "English"=>"1", "Languages"=>"1", "Other"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1319)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3802)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 5627)
+
+
+Started GET "/postings?types%5BUser%5D=1&types%5BProfessional%5D=1&subjects%5BMath%5D=1&subjects%5BPhysics%5D=1&subjects%5BChemistry%5D=1&subjects%5BBiology%5D=1&subjects%5BEnglish%5D=1&subjects%5BLanguages%5D=1&subjects%5BOther%5D=1&commit=Refresh" for 127.0.0.1 at 2023-11-14 00:50:48 -0500
+Processing by PostingsController#index as HTML
+  Parameters: {"types"=>{"User"=>"1", "Professional"=>"1"}, "subjects"=>{"Math"=>"1", "Physics"=>"1", "Chemistry"=>"1", "Biology"=>"1", "English"=>"1", "Languages"=>"1", "Other"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1103)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3583)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.3ms | Allocations: 5351)
+
+
+Started GET "/postings?types%5BUser%5D=1&types%5BProfessional%5D=1&subjects%5BRecruitment%5D=1&subjects%5BCS%5D=1&subjects%5BMath%5D=1&subjects%5BPhysics%5D=1&subjects%5BChemistry%5D=1&subjects%5BBiology%5D=1&subjects%5BEnglish%5D=1&subjects%5BLanguages%5D=1&subjects%5BOther%5D=1&commit=Refresh" for 127.0.0.1 at 2023-11-14 00:50:52 -0500
+Processing by PostingsController#index as HTML
+  Parameters: {"types"=>{"User"=>"1", "Professional"=>"1"}, "subjects"=>{"Recruitment"=>"1", "CS"=>"1", "Math"=>"1", "Physics"=>"1", "Chemistry"=>"1", "Biology"=>"1", "English"=>"1", "Languages"=>"1", "Other"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1318)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3798)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 5573)
+
+
+Started GET "/postings?types%5BUser%5D=1&subjects%5BRecruitment%5D=1&subjects%5BCS%5D=1&subjects%5BMath%5D=1&subjects%5BPhysics%5D=1&subjects%5BChemistry%5D=1&subjects%5BBiology%5D=1&subjects%5BEnglish%5D=1&subjects%5BLanguages%5D=1&subjects%5BOther%5D=1&commit=Refresh" for 127.0.0.1 at 2023-11-14 00:50:56 -0500
+Processing by PostingsController#index as HTML
+  Parameters: {"types"=>{"User"=>"1"}, "subjects"=>{"Recruitment"=>"1", "CS"=>"1", "Math"=>"1", "Physics"=>"1", "Chemistry"=>"1", "Biology"=>"1", "English"=>"1", "Languages"=>"1", "Other"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1146)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3626)
+Completed 200 OK in 14ms (Views: 7.8ms | ActiveRecord: 0.6ms | Allocations: 5393)
+
+
+Started GET "/postings?types%5BUser%5D=1&subjects%5BRecruitment%5D=1&subjects%5BCS%5D=1&subjects%5BMath%5D=1&subjects%5BPhysics%5D=1&subjects%5BChemistry%5D=1&subjects%5BBiology%5D=1&subjects%5BEnglish%5D=1&subjects%5BLanguages%5D=1&subjects%5BOther%5D=1&commit=Refresh" for 127.0.0.1 at 2023-11-14 00:50:57 -0500
+Processing by PostingsController#index as HTML
+  Parameters: {"types"=>{"User"=>"1"}, "subjects"=>{"Recruitment"=>"1", "CS"=>"1", "Math"=>"1", "Physics"=>"1", "Chemistry"=>"1", "Biology"=>"1", "English"=>"1", "Languages"=>"1", "Other"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1146)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3626)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 5420)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-14 00:50:58 -0500
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 9ms (ActiveRecord: 0.1ms | Allocations: 3022)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 00:50:58 -0500
+Processing by UsersController#index as TURBO_STREAM
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-14 00:50:58 -0500
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 690)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 2850)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 5411)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 0.0ms | Allocations: 6755)
+
+
