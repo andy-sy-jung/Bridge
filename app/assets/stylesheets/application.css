@@ -13,3 +13,81 @@
  *= require_tree .
  *= require_self
  */
+nav .nav-link {
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+/* Add this to your application.css */
+
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+header {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Logo styling */
+header img {
+  max-height: 100px; /* Adjust as needed */
+}
+
+/* Navigation links styling */
+nav .nav-link {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Main content area */
+.main-content {
+  margin-top: 20px;
+}
+
+/* Style for table and postings */
+.table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Buttons */
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+

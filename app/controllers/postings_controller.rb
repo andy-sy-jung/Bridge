@@ -58,6 +58,10 @@ class PostingsController < ApplicationController
       end
     end
 
+    def my_postings
+      @my_postings = Posting.where(user: current_user) # Adjust the query according to your user-post association
+    end
+
     private
     # Making "internal" methods private is not required, but is a common practice.
     # This helps make clear which methods respond to requests, and which ones do not.

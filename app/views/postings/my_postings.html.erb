@@ -1,0 +1,30 @@
+<h1>My Postings</h1>
+
+<% if @my_postings.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Hourly Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @my_postings.each do |posting| %>
+        <tr>
+          <td><%= posting.type_of %></td>
+          <td><%= posting.name %></td>
+          <td><%= posting.subject %></td>
+          <td><%= posting.price %></td>
+          <td><%= link_to 'More about this posting', posting %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>You have not created any postings yet.</p>
+<% end %>
+
+<%= link_to 'Add new posting', new_posting_path, class: 'btn btn-primary' %>
+

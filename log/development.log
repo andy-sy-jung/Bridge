@@ -4510,3 +4510,201 @@ Processing by Devise::SessionsController#new as TURBO_STREAM
 Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 0.0ms | Allocations: 6755)
 
 
+Started GET "/" for ::1 at 2023-11-14 18:00:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 401 Unauthorized in 84ms (ActiveRecord: 1.5ms | Allocations: 28796)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-11-14 18:00:02 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 695)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 28.0ms | Allocations: 3927)
+  Rendered layout layouts/application.html.erb (Duration: 536.7ms | Allocations: 112476)
+Completed 200 OK in 566ms (Views: 561.2ms | ActiveRecord: 0.0ms | Allocations: 117908)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-11-14 18:00:11 -0500
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"eithanjahjaloo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "eithanjahjaloo@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.5ms | Allocations: 1868)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"eithanjahjaloo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1042)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3822)
+Completed 200 OK in 287ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 5573)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-11-14 18:00:16 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1713)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4482)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 5397)
+
+
+Started POST "/users" for ::1 at 2023-11-14 18:00:35 -0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"eithanjahjaloo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "eithanjahjaloo@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "first_name", "last_name", "school", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "eithanjahjaloo@gmail.com"], ["encrypted_password", "$2a$12$38tLPrh7rFjx5VbR8hliROIrEPl1dEhvYH63b/teqZyyHdrKjMOzK"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["first_name", nil], ["last_name", nil], ["school", nil], ["year", nil], ["created_at", "2023-11-14 23:00:36.215437"], ["updated_at", "2023-11-14 23:00:36.215437"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 230ms (ActiveRecord: 1.8ms | Allocations: 18387)
+
+
+Started GET "/" for ::1 at 2023-11-14 18:00:36 -0500
+Processing by UsersController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/postings
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1497)
+
+
+Started GET "/postings" for ::1 at 2023-11-14 18:00:36 -0500
+Processing by PostingsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.6ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 22.0ms | Allocations: 12984)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 15857)
+Completed 200 OK in 37ms (Views: 26.5ms | ActiveRecord: 1.0ms | Allocations: 19695)
+
+
+Started GET "/postings/new" for ::1 at 2023-11-14 18:00:59 -0500
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2035)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4800)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 6473)
+
+
+Started GET "/postings/new" for ::1 at 2023-11-14 18:03:33 -0500
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 918)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3685)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.1ms | Allocations: 5282)
+
+
+Started GET "/" for ::1 at 2023-11-14 20:53:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/postings
+Completed 302 Found in 50ms (ActiveRecord: 0.9ms | Allocations: 24218)
+
+
+Started GET "/postings" for ::1 at 2023-11-14 20:53:25 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.6ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 20.8ms | Allocations: 13174)
+  Rendered layout layouts/application.html.erb (Duration: 206.4ms | Allocations: 64648)
+Completed 500 Internal Server Error in 229ms (ActiveRecord: 1.1ms | Allocations: 70698)
+
+
+  
+ActionView::Template::Error (The asset "BridgePhoto.png" is not present in the asset pipeline.
+):
+    11: </head>
+    12: <body>
+    13:   <header>
+    14:     <%= image_tag 'BridgePhoto.png', alt: 'Bridge Logo', style: 'margin-top: 20px;' %>
+    15:     <nav>
+    16:       <%= link_to 'Home', root_path, class: 'nav-link' %> |
+    17:       <%= link_to 'My Postings', my_postings_path, class: 'nav-link' %>
+  
+app/views/layouts/application.html.erb:14
+Started GET "/" for ::1 at 2023-11-14 20:57:00 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/postings
+Completed 302 Found in 49ms (ActiveRecord: 0.6ms | Allocations: 24191)
+
+
+Started GET "/postings" for ::1 at 2023-11-14 20:57:00 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 21.5ms | Allocations: 13174)
+  Rendered layout layouts/application.html.erb (Duration: 108.3ms | Allocations: 51310)
+Completed 200 OK in 123ms (Views: 111.8ms | ActiveRecord: 0.6ms | Allocations: 57383)
+
+
+Started GET "/postings/new" for ::1 at 2023-11-14 20:57:10 -0500
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1989)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 5289)
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 6990)
+
+
+Started GET "/postings/new" for ::1 at 2023-11-14 20:58:06 -0500
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 919)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4216)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 5827)
+
+
+Started GET "/my_postings" for ::1 at 2023-11-14 20:58:09 -0500
+Processing by PostingsController#my_postings as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/my_postings.html.erb within layouts/application
+  [1m[36mPosting Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "postings" WHERE "postings"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/views/postings/my_postings.html.erb:3
+  Rendered postings/my_postings.html.erb within layouts/application (Duration: 1.9ms | Allocations: 801)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 4099)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.2ms | Allocations: 6349)
+
+
+Started GET "/" for ::1 at 2023-11-14 20:58:11 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/postings
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 1466)
+
+
+Started GET "/postings" for ::1 at 2023-11-14 20:58:11 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1294)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 4617)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.3ms | Allocations: 6324)
+
+
