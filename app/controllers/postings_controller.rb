@@ -47,6 +47,22 @@ class PostingsController < ApplicationController
       @posting = Posting.new
     end
 
+    def edit
+      @posting = Posting.find(params[:id])
+    end
+
+    def destroy
+      @posting = Posting.find(params[:id])
+      @posting.destroy
+      redirect_to postings_path
+    end
+
+    def update
+      @posting = Posting.find(params[:id])
+      @posting.update!(posting_params)
+      redirect_to posting_path(@posting)
+    end
+
     def create
       @posting = Posting.new(posting_params)
       @posting.user = current_user # Associate the posting with the currently logged-in user

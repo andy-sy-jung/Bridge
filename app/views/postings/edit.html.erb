@@ -1,0 +1,27 @@
+<h2>Edit Posting</h2>
+<%= form_for @posting, url: posting_path(@posting), method: :patch, :class => 'form' do |f| %>
+    <%= label :posting, :type_of, 'Type: ', :class => 'col-form-label'  %>
+    <%= select :posting, :type_of, Posting.all_types, {}, {:class => 'form-control col-1'} %>
+    <br/><br/>
+    <%= label :posting, :subject, 'Subject: ', :class => 'col-form-label'  %>
+    <%= select :posting, :subject, Posting.all_subjects, {}, {:class => 'form-control col-1'} %>
+    <br/><br/>
+    <%= label :posting, :name, 'Name: ', :class => 'col-form-label' %>
+    <%= f.text_field :name, :class => 'form-control' %>
+    <br/><br/>
+    <%= label :posting, :description, 'Description: ', :class => 'col-form-label' %>
+    <%= f.text_field :description, :class => 'form-control' %>
+    <br/><br/>
+    <%= label :posting, :price, 'Hourly Price: ', :class => 'col-form-label' %>
+    <%= f.text_field :price, :class => 'form-control' %>
+    <br/><br/>
+    <%= label :posting, :availability, 'Availability: ', :class => 'col-form-label' %>
+    <%= f.text_field :availability, :class => 'form-control' %>
+    <br/><br/>
+    <%= label :posting, :contact, 'Contact Info: ', :class => 'col-form-label' %>
+    <%= f.text_field :contact, :class => 'form-control' %>
+    <br/><br/>
+    <%= f.submit 'Update Posting Info', :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', postings_path, :class => 'btn btn-secondary' %>
+  <% end %>
+ 
