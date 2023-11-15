@@ -4510,3 +4510,1077 @@ Processing by Devise::SessionsController#new as TURBO_STREAM
 Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 0.0ms | Allocations: 6755)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-14 17:54:12 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 20ms (ActiveRecord: 0.3ms | Allocations: 24225)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 17:54:12 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 13178)
+  Rendered layout layouts/application.html.erb (Duration: 50.9ms | Allocations: 58369)
+Completed 200 OK in 61ms (Views: 53.2ms | ActiveRecord: 0.4ms | Allocations: 64598)
+
+
+Started GET "/postings/10" for 127.0.0.1 at 2023-11-14 17:54:29 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 461)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2946)
+Completed 200 OK in 15ms (Views: 8.1ms | ActiveRecord: 0.4ms | Allocations: 5688)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 17:54:36 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (1.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1308)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3792)
+Completed 200 OK in 26ms (Views: 6.1ms | ActiveRecord: 1.4ms | Allocations: 5521)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:37:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 19ms (ActiveRecord: 0.3ms | Allocations: 24239)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:37:31 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 13178)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 47735)
+Completed 200 OK in 39ms (Views: 32.1ms | ActiveRecord: 0.2ms | Allocations: 53868)
+
+
+Started GET "/postings/9" for 127.0.0.1 at 2023-11-14 20:37:34 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 458)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2943)
+Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 0.4ms | Allocations: 5661)
+
+
+Started GET "/postings/9/edit" for 127.0.0.1 at 2023-11-14 20:37:35 -0500
+Processing by PostingsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/edit.html.erb within layouts/application
+  Rendered postings/edit.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1916)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2008)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms | Allocations: 3632)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"postings", :id=>nil}, missing required keys: [:id]):
+    1: <h2>Edit Posting</h2>
+    2: <%= form_for @posting, url: posting_path(@posting), method: :patch, :class => 'form' do |f| %>
+    3:     <%= label :posting, :type_of, 'Type: ', :class => 'col-form-label'  %>
+    4:     <%= select :posting, :type_of, Posting.all_types, {}, {:class => 'form-control col-1'} %>
+    5:     <br/><br/>
+  
+app/views/postings/edit.html.erb:2
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:41:28 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 19ms (ActiveRecord: 0.3ms | Allocations: 24236)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:41:28 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 13178)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 47798)
+Completed 200 OK in 38ms (Views: 31.3ms | ActiveRecord: 0.2ms | Allocations: 53886)
+
+
+Started GET "/postings/9" for 127.0.0.1 at 2023-11-14 20:41:30 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 458)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2943)
+Completed 200 OK in 12ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 5679)
+
+
+Started GET "/postings/9/edit" for 127.0.0.1 at 2023-11-14 20:41:31 -0500
+Processing by PostingsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:51:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/edit.html.erb within layouts/application
+  Rendered postings/edit.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2362)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4846)
+Completed 200 OK in 16ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 6900)
+
+
+Started PATCH "/postings/9" for 127.0.0.1 at 2023-11-14 20:41:39 -0500
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for PostingsController):
+  
+actionpack (7.1.1) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.1) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/postings/9/edit" for 127.0.0.1 at 2023-11-14 20:41:39 -0500
+Processing by PostingsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:51:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/edit.html.erb within layouts/application
+  Rendered postings/edit.html.erb within layouts/application (Duration: 0.6ms | Allocations: 956)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 3467)
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 5440)
+
+
+Started PATCH "/postings/9" for 127.0.0.1 at 2023-11-14 20:41:42 -0500
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for PostingsController):
+  
+actionpack (7.1.1) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.1) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/postings/9/edit" for 127.0.0.1 at 2023-11-14 20:41:42 -0500
+Processing by PostingsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:51:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/edit.html.erb within layouts/application
+  Rendered postings/edit.html.erb within layouts/application (Duration: 0.6ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 3466)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 5464)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:41:43 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.4ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1308)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3792)
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 0.6ms | Allocations: 5517)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:43:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 19ms (ActiveRecord: 0.2ms | Allocations: 24242)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:43:31 -0500
+  
+SyntaxError (/Users/ajung/Desktop/Bridge/app/controllers/postings_controller.rb:82: syntax error, unexpected end-of-input
+  end
+     ^
+):
+  
+app/controllers/postings_controller.rb:82: syntax error, unexpected end-of-input
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:43:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 18ms (ActiveRecord: 0.3ms | Allocations: 24230)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:43:48 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 13178)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 47815)
+Completed 200 OK in 36ms (Views: 31.3ms | ActiveRecord: 0.2ms | Allocations: 53903)
+
+
+Started GET "/postings/9" for 127.0.0.1 at 2023-11-14 20:43:50 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 462)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 2950)
+Completed 200 OK in 12ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 5704)
+
+
+Started GET "/postings/9/edit" for 127.0.0.1 at 2023-11-14 20:43:53 -0500
+Processing by PostingsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:51:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/edit.html.erb within layouts/application
+  Rendered postings/edit.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2034)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4518)
+Completed 200 OK in 18ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 6560)
+
+
+Started PATCH "/postings/9" for 127.0.0.1 at 2023-11-14 20:43:56 -0500
+Processing by PostingsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "posting"=>{"type_of"=>"Professional", "subject"=>"CS", "name"=>"Rutvik Rau", "description"=>"BIG MAN WILLING TO DO BIG THINGS", "price"=>"2000.0", "availability"=>"Never", "contact"=>"000000"}, "commit"=>"Update Posting Info", "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:61:in `update'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 2548)
+
+
+  
+NoMethodError (undefined method `update_attributes!' for #<Posting id: 9, user_id: 1, type_of: "Professional", name: "Rutvik Rau, Boss Man", price: 2000.0, subject: "CS", description: "BIG MAN WILLING TO DO BIG THINGS", availability: "Never", contact: "000000">):
+  
+app/controllers/postings_controller.rb:62:in `update'
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:48:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 19ms (ActiveRecord: 0.3ms | Allocations: 24245)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:48:15 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 13178)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 47629)
+Completed 200 OK in 40ms (Views: 32.6ms | ActiveRecord: 0.3ms | Allocations: 53738)
+
+
+Started GET "/postings/9" for 127.0.0.1 at 2023-11-14 20:48:17 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 462)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2950)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 5677)
+
+
+Started GET "/postings/9/edit" for 127.0.0.1 at 2023-11-14 20:48:18 -0500
+Processing by PostingsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:51:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/edit.html.erb within layouts/application
+  Rendered postings/edit.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2034)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 4518)
+Completed 200 OK in 16ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 6524)
+
+
+Started PATCH "/postings/9" for 127.0.0.1 at 2023-11-14 20:48:22 -0500
+Processing by PostingsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "posting"=>{"type_of"=>"Professional", "subject"=>"CS", "name"=>"Rutvik Rau", "description"=>"BIG MAN WILLING TO DO BIG THINGS", "price"=>"2000.0", "availability"=>"Never", "contact"=>"000000"}, "commit"=>"Update Posting Info", "id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:61:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/postings_controller.rb:62:in `update'
+  [1m[36mPosting Update (0.5ms)[0m  [1m[33mUPDATE "postings" SET "name" = ? WHERE "postings"."id" = ?[0m  [["name", "Rutvik Rau"], ["id", 9]]
+  ↳ app/controllers/postings_controller.rb:62:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/postings_controller.rb:62:in `update'
+Redirected to http://0.0.0.0:3000/postings/9
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms | Allocations: 4655)
+
+
+Started GET "/postings/9" for 127.0.0.1 at 2023-11-14 20:48:22 -0500
+Processing by PostingsController#show as TURBO_STREAM
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2597)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 4600)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:48:27 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.5ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1307)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3791)
+Completed 200 OK in 12ms (Views: 6.7ms | ActiveRecord: 0.7ms | Allocations: 5524)
+
+
+Started GET "/postings/10" for 127.0.0.1 at 2023-11-14 20:48:32 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2597)
+Completed 200 OK in 10ms (Views: 4.7ms | ActiveRecord: 0.2ms | Allocations: 4566)
+
+
+Started GET "/postings/10/edit" for 127.0.0.1 at 2023-11-14 20:48:34 -0500
+Processing by PostingsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:51:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/edit.html.erb within layouts/application
+  Rendered postings/edit.html.erb within layouts/application (Duration: 1.5ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3439)
+Completed 200 OK in 10ms (Views: 5.9ms | ActiveRecord: 0.3ms | Allocations: 5399)
+
+
+Started PATCH "/postings/10" for 127.0.0.1 at 2023-11-14 20:48:38 -0500
+Processing by PostingsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "posting"=>{"type_of"=>"Professional", "subject"=>"CS", "name"=>"Andrew Jung", "description"=>"I am professional, not scammer", "price"=>"2000", "availability"=>"Never", "contact"=>"000000"}, "commit"=>"Update Posting Info", "id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:61:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/postings_controller.rb:62:in `update'
+  [1m[36mPosting Update (0.9ms)[0m  [1m[33mUPDATE "postings" SET "price" = ? WHERE "postings"."id" = ?[0m  [["price", 2000.0], ["id", 10]]
+  ↳ app/controllers/postings_controller.rb:62:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/postings_controller.rb:62:in `update'
+Redirected to http://0.0.0.0:3000/postings/10
+Completed 302 Found in 14ms (ActiveRecord: 1.3ms | Allocations: 3384)
+
+
+Started GET "/postings/10" for 127.0.0.1 at 2023-11-14 20:48:38 -0500
+Processing by PostingsController#show as TURBO_STREAM
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2625)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.1ms | Allocations: 4595)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:48:40 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.4ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1307)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3791)
+Completed 200 OK in 11ms (Views: 5.7ms | ActiveRecord: 0.6ms | Allocations: 5517)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:48:46 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2597)
+Completed 200 OK in 10ms (Views: 5.4ms | ActiveRecord: 0.2ms | Allocations: 4567)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:48:47 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2596)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.1ms | Allocations: 4536)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:48:49 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1307)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3791)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.4ms | Allocations: 5514)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:48:51 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 2596)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.1ms | Allocations: 4574)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:48:52 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2596)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.1ms | Allocations: 4559)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:48:52 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2596)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.1ms | Allocations: 4568)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:48:53 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.4ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1307)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3794)
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 0.5ms | Allocations: 5505)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:49:01 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2596)
+Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 0.2ms | Allocations: 4550)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:49:07 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2609)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.1ms | Allocations: 4582)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:49:08 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2610)
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 4570)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:49:08 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2596)
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 4562)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:49:08 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 2596)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 4541)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:49:08 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2597)
+Completed 200 OK in 10ms (Views: 4.7ms | ActiveRecord: 0.2ms | Allocations: 4551)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:49:34 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 21ms (ActiveRecord: 0.4ms | Allocations: 24218)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:49:34 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 13177)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 47616)
+Completed 200 OK in 43ms (Views: 36.2ms | ActiveRecord: 0.3ms | Allocations: 53728)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:49:36 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.4ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 447)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2932)
+Completed 200 OK in 13ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 5674)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:49:37 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 108)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2593)
+Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 0.2ms | Allocations: 4543)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:49:38 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1307)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3791)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 5539)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:52:50 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 20ms (ActiveRecord: 0.3ms | Allocations: 24260)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:52:50 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 13177)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 47822)
+Completed 200 OK in 38ms (Views: 31.3ms | ActiveRecord: 0.2ms | Allocations: 53916)
+
+
+Started GET "/postings/13" for 127.0.0.1 at 2023-11-14 20:52:51 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 538)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3025)
+Completed 200 OK in 10ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 5755)
+
+
+Started DELETE "/postings/13" for 127.0.0.1 at 2023-11-14 20:52:54 -0500
+Processing by PostingsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:55:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/postings_controller.rb:56:in `destroy'
+  [1m[36mPosting Destroy (0.5ms)[0m  [1m[31mDELETE FROM "postings" WHERE "postings"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/postings_controller.rb:56:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/postings_controller.rb:56:in `destroy'
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms | Allocations: 3324)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:52:54 -0500
+Processing by PostingsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1265)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3749)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 5537)
+
+
+Started GET "/postings/14" for 127.0.0.1 at 2023-11-14 20:53:03 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 197)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2681)
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 4657)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:53:07 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1265)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3749)
+Completed 200 OK in 10ms (Views: 5.9ms | ActiveRecord: 0.5ms | Allocations: 5500)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:54:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 19ms (ActiveRecord: 0.3ms | Allocations: 24248)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:54:05 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.3ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 13135)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 47779)
+Completed 200 OK in 40ms (Views: 32.8ms | ActiveRecord: 0.4ms | Allocations: 53888)
+
+
+Started GET "/postings/14" for 127.0.0.1 at 2023-11-14 20:54:06 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 683)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3170)
+Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 0.4ms | Allocations: 5915)
+
+
+Started POST "/postings" for 127.0.0.1 at 2023-11-14 20:54:09 -0500
+Processing by PostingsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.1ms | Allocations: 1974)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: posting):
+  
+app/controllers/postings_controller.rb:81:in `posting_params'
+app/controllers/postings_controller.rb:67:in `create'
+Started GET "/postings/14" for 127.0.0.1 at 2023-11-14 20:54:09 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 337)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2848)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 4809)
+
+
+Started POST "/postings" for 127.0.0.1 at 2023-11-14 20:54:10 -0500
+Processing by PostingsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.2ms | Allocations: 1899)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: posting):
+  
+app/controllers/postings_controller.rb:81:in `posting_params'
+app/controllers/postings_controller.rb:67:in `create'
+Started GET "/postings/14" for 127.0.0.1 at 2023-11-14 20:54:10 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.0ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 337)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2848)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 4809)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:56:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 18ms (ActiveRecord: 0.3ms | Allocations: 24230)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:56:18 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 13135)
+  Rendered layout layouts/application.html.erb (Duration: 53.7ms | Allocations: 71433)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.2ms | Allocations: 77522)
+
+
+  
+ActionView::Template::Error (Asset `rails-ujs.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link rails-ujs.js
+
+and restart your server):
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+    12:     <%= javascript_include_tag 'rails-ujs' %>
+    13:   </head>
+    14: 
+    15:   <body>
+  
+app/views/layouts/application.html.erb:12
+Started GET "/" for 127.0.0.1 at 2023-11-14 20:58:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 18ms (ActiveRecord: 0.2ms | Allocations: 24239)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:58:06 -0500
+Processing by PostingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 13135)
+  Rendered layout layouts/application.html.erb (Duration: 51.5ms | Allocations: 58494)
+Completed 200 OK in 61ms (Views: 53.8ms | ActiveRecord: 0.2ms | Allocations: 64611)
+
+
+Started GET "/postings/new" for 127.0.0.1 at 2023-11-14 20:58:10 -0500
+Processing by PostingsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/new.html.erb within layouts/application
+  Rendered postings/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1989)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 5622)
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 7351)
+
+
+Started POST "/postings" for 127.0.0.1 at 2023-11-14 20:58:18 -0500
+Processing by PostingsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "posting"=>{"type_of"=>"User", "subject"=>"Recruitment", "name"=>"TestMan", "description"=>"A Nobody", "price"=>"0.00", "availability"=>"Always", "contact"=>"000000000"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/postings_controller.rb:70:in `create'
+  [1m[36mPosting Create (1.1ms)[0m  [1m[32mINSERT INTO "postings" ("user_id", "type_of", "name", "price", "subject", "description", "availability", "contact") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["type_of", "User"], ["name", "TestMan"], ["price", 0.0], ["subject", "Recruitment"], ["description", "A Nobody"], ["availability", "Always"], ["contact", "000000000"]]
+  ↳ app/controllers/postings_controller.rb:70:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/postings_controller.rb:70:in `create'
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 11ms (ActiveRecord: 1.6ms | Allocations: 5289)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:58:18 -0500
+Processing by PostingsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1307)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4933)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 6724)
+
+
+Started GET "/postings/15" for 127.0.0.1 at 2023-11-14 20:58:21 -0500
+Processing by PostingsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering postings/show.html.erb within layouts/application
+  Rendered postings/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 443)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4070)
+Completed 200 OK in 14ms (Views: 7.2ms | ActiveRecord: 0.4ms | Allocations: 6795)
+
+
+Started DELETE "/postings/15" for 127.0.0.1 at 2023-11-14 20:58:23 -0500
+Processing by PostingsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPosting Load (0.1ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE "postings"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/postings_controller.rb:55:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/postings_controller.rb:56:in `destroy'
+  [1m[36mPosting Destroy (0.5ms)[0m  [1m[31mDELETE FROM "postings" WHERE "postings"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/postings_controller.rb:56:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/postings_controller.rb:56:in `destroy'
+Redirected to http://0.0.0.0:3000/postings
+Completed 302 Found in 18ms (ActiveRecord: 0.9ms | Allocations: 3098)
+
+
+Started GET "/postings" for 127.0.0.1 at 2023-11-14 20:58:23 -0500
+Processing by PostingsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering postings/index.html.erb within layouts/application
+  [1m[36mPosting Load (0.2ms)[0m  [1m[34mSELECT "postings".* FROM "postings" WHERE (lower(type_of) IN ('user','professional') AND lower(subject) IN ('recruitment','cs','math','physics','chemistry','biology','english','languages','other'))[0m
+  ↳ app/views/postings/index.html.erb:36
+  Rendered postings/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1265)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4910)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.3ms | Allocations: 6644)
+
+
