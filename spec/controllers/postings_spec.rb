@@ -140,6 +140,33 @@ RSpec.describe PostingsController, type: :controller do
     end
   end
 
+  describe 'PATCH #update' do
+    let(:posting) { Posting.create(
+      user_id: @user.id,
+      type_of: 'User',
+      name: 'Test Name',
+      price: 100.0,
+      subject: 'CS',
+      description: 'Test Description',
+      availability: 'Available',
+      contact: 'test@example.com'
+    )}
+    let(:valid_params) { { type_of: 'Professional', subject: 'Math', description: 'Updated description' } }
+    let(:invalid_params) { { type_of: 'Professional', subject: '', description: 'Updated description' } }
+
+    context 'with valid params' do
+      it 'updates the posting' do
+        patch :update, params: { id: posting.id, posting: valid_params }
+        posting.reload
+
+        expect(response).to redirect_to(posting_path(posting))
+        expect(posting.type_of).to eq('Professional')
+        expect(posting.subject).to eq('Math')
+        expect(posting.description).to eq('Updated description')
+      end
+    end
+  end
+
 
 
 end

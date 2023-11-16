@@ -8,6 +8,7 @@ class Posting < ApplicationRecord
   validates :price, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }
   validates :contact, presence: true
+  validates :name, presence: true
 
   def self.all_types
     return ['User', 'Professional']
