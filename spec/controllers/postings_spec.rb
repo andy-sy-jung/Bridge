@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe PostingsController, type: :controller do
   before do
     @user = User.create(email: 'user@example.com', password: 'password123') # Create a user
+    @user2 = User.create(email: 'user2@example.com', password: 'password123')
     sign_in @user # Sign in the user using Devise
   end
 
@@ -194,6 +195,56 @@ RSpec.describe PostingsController, type: :controller do
     it 'redirects to postings_path' do
       delete :destroy, params: { id: posting.id }
       expect(response).to redirect_to(postings_path)
+    end
+  end
+
+  describe 'GET #my_postings' do
+    let!(:posting1) do
+      Posting.create(
+        user_id: @user.id,
+        type_of: 'User',
+        name: 'Test Name1',
+        price: 100.0,
+        subject: 'Math',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+    let!(:posting2) do
+      Posting.create(
+        user_id: @user.id,
+        type_of: 'User',
+        name: 'Test Name2',
+        price: 100.0,
+        subject: 'CS',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+    let!(:posting3) do
+      Posting.create(
+        user_id: @user2.id,
+        type_of: 'User',
+        name: 'Test Name3',
+        price: 100.0,
+        subject: 'CS',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+
+
+    it 'assigns @my_postings with postings belonging to the current user' do
+      get :my_postings
+      expect(assigns(:my_postings)).to match_array([posting1, posting2])
+    end
+
+    it 'renders the my_postings template' do
+      get :my_postings
+      expect(response).to render_template(:my_postings)
     end
   end
 
