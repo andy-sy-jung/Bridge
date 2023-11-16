@@ -167,6 +167,35 @@ RSpec.describe PostingsController, type: :controller do
     end
   end
 
+  describe 'DELETE #destroy' do
+    let!(:posting) do
+      Posting.create(
+        user_id: @user.id,
+        type_of: 'User',
+        name: 'Test Name',
+        price: 100.0,
+        subject: 'CS',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+
+    it 'deletes the posting' do
+      puts "Count before deletion: #{Posting.count}"
+      expect {
+        delete :destroy, params: { id: posting.id }
+      }.to change(Posting, :count).by(-1)
+      puts "Count after deletion: #{Posting.count}"
+    
+      expect(response).to redirect_to(postings_path)
+    end
+
+    it 'redirects to postings_path' do
+      delete :destroy, params: { id: posting.id }
+      expect(response).to redirect_to(postings_path)
+    end
+  end
 
 
 end
