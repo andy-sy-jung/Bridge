@@ -81,3 +81,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
 end
+
+group :test do
+  gem 'shoulda-matchers'
+end
