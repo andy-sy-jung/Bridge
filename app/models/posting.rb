@@ -18,7 +18,7 @@ class Posting < ApplicationRecord
   end
 
   def self.with_categories(types_list, subjects_list)
-    if (types_list.length == 0 or types_list.nil?) && (subjects_list.length == 0 or subjects_list.nil?)
+    if (types_list.length == 0 or types_list.nil? or types_list.length == self.all_types.length) && (subjects_list.length == 0 or subjects_list.nil? or subjects_list.length == self.all_subjects.length)
       return Posting.all
     elsif (subjects_list.length == 0 or subjects_list.nil?)
       return Posting.where("lower(type_of) IN (?)", types_list.map(&:downcase))
