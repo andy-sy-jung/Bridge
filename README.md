@@ -9,7 +9,7 @@
 
 - git clone https://github.com/andy-sy-jung/Bridge.git
 - bundle install --without production
-- rail db:migrate
+- rails db:migrate
 - rake db:seed
 - rails server -b 0.0.0.0
 
