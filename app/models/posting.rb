@@ -1,6 +1,14 @@
 class Posting < ApplicationRecord
   belongs_to :user
 
+  validates :type_of, presence: true
+  validates :subject, presence: true
+  validates :description, presence: true
+  validates :availability, presence: true
+  validates :price, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
+  validates :contact, presence: true
+
   def self.all_types
     return ['User', 'Professional']
   end
