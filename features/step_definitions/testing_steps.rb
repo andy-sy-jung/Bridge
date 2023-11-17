@@ -46,7 +46,6 @@ Given("I am on the sign-up page") do
     click_on(button)
   end
 
-  
   Then("I should see {string}") do |message|
     expect(page).to have_content(message)
   end
@@ -117,4 +116,14 @@ Then("I should not see a table row with the following fields:") do |table|
   values_to_exclude.each do |expected_row|
     expect(actual_rows).not_to include(expected_row)
   end
+end
+
+Then("I fill in the edit form") do
+  select 'User', from: 'posting_type_of'
+  fill_in 'posting[name]', with: 'TestingMan'
+  select 'CS', from: 'posting_subject'
+  fill_in 'posting[description]', with: 'Master Tutor'
+  fill_in 'posting[price]', with: '20000'
+  fill_in 'posting[availability]', with: 'Never'
+  fill_in 'posting[contact]', with: '0109919241'
 end
