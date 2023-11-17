@@ -127,3 +127,12 @@ Then("I fill in the edit form") do
   fill_in 'posting[availability]', with: 'Never'
   fill_in 'posting[contact]', with: '0109919241'
 end
+
+When("I uncheck all other boxes except {string}") do |preserved|
+  all_subjects = Posting.all_subjects
+
+  all_subjects.each do |subject|
+    next if subject == preserved
+    uncheck("subjects[#{subject}]")
+  end
+end
