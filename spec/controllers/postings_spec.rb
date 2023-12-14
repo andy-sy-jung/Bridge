@@ -248,5 +248,30 @@ RSpec.describe PostingsController, type: :controller do
     end
   end
 
+  describe 'GET #edit' do
+    let!(:posting) do
+      Posting.create(
+        user_id: @user.id,
+        type_of: 'User',
+        name: 'Test Name3',
+        price: 100.0,
+        subject: 'CS',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+
+    it 'assigns the requested posting to @posting' do
+      get :edit, params: { id: posting.id }
+      expect(assigns(:posting)).to eq(posting)
+    end
+
+    it 'renders the edit template' do
+      get :edit, params: { id: posting.id }
+      expect(response).to render_template(:edit)
+    end
+  end
+
 
 end
