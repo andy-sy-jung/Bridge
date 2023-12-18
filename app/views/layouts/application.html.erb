@@ -9,10 +9,61 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <style>
+    /* Custom Styles */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    }
+
+    header img {
+      max-width: 100%; /* Ensures the image is responsive */
+      height: auto;
+      margin-bottom: 10px; /* Adds space between the image and navigation links */
+    }
+
+    nav {
+      display: block;
+    }
+
+    .nav-link {
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+      padding: 8px 16px;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+      color: #0056b3;
+    }
+
+    /* Ensures that nav links are horizontally aligned on larger screens */
+    @media (min-width: 768px) {
+      nav {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .main-content {
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <%= image_tag 'BridgePhoto.jpg', alt: 'Bridge Logo', style: 'margin-top: 20px;' %>
+    <%= image_tag 'BridgePhoto.jpg', alt: 'Bridge Logo' %>
     <nav>
       <%= link_to 'Home', root_path, class: 'nav-link' %> |
       <%= link_to 'My Postings', my_postings_path, class: 'nav-link' %>
@@ -23,4 +74,3 @@
   </div>
 </body>
 </html>
-
