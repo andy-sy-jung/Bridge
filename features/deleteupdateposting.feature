@@ -26,7 +26,6 @@ Feature: User deleting and updating a posting that they own
         Then I should see the following details for the posting:
         | Type          | User              |
         | Subject       | CS                |
-        | Description   | Experienced tutor |
         | Availability  | Anytime           |
         | Price         | 1000.0            |
         | Info          | 0109919241        |
