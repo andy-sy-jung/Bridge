@@ -23,42 +23,25 @@
   <%= submit_tag 'Refresh', class: 'btn btn-primary' %>
 <% end %>
 
-<table class="table table-striped col-md-12" id="postings">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Subject</th>
-      <th>Hourly Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @postings.each do |p| %>
-      <tr>
-        <td>
-          <%= p.type_of %>
-        </td>
-        <td>
-          <%= p.name %>
-        </td>
-        <td>
-          <%= p.subject %>
-        </td>
-        <td>
-          <%= p.price %>
-        </td>
-        <td>
-          <%= link_to "More about this #{p.type_of}", posting_path(p) %>
-        </td>
-      </tr>
-      <tr><td colspan="5"><hr></td></tr> <!-- This adds a horizontal line between postings -->
-    <% end %>
-  </tbody>
-</table>
+<div class="postings-container">
+  <% @postings.each do |p| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= p.name %></h5>
+        <p class="card-subtitle"><%= p.type_of %></p>
+        <p class="card-text"><%= p.subject %></p>
+        <p class="card-text">Hourly Price: <%= p.price %></p>
+        <%= link_to "More about this #{p.type_of}", posting_path(p), class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <%= link_to 'Add new posting', new_posting_path, :class => 'btn btn-primary' %>
 
 <%= button_to(
         "Log Out",
         destroy_user_session_path,
-        method: :delete
+        method: :delete,
+        class: 'btn btn-secondary'
       ) %>
