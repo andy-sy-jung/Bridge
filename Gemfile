@@ -80,4 +80,9 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+  gem 'simplecov', require: false
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end

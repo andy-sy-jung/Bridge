@@ -9,7 +9,7 @@
 
 - git clone https://github.com/andy-sy-jung/Bridge.git
 - bundle install --without production
-- rail db:migrate
+- rails db:migrate
 - rake db:seed
 - rails server -b 0.0.0.0
 
@@ -22,10 +22,11 @@
 - You will now see other postings of people and their services, interact with them by looking into their info
 - Creating a new posting for you and the services you offer.
 
-**TO DO**
+**Additional Features**
 
-- Add post creation validation
-- Limiting posts for each user
-- Add editing feature for posts
-- Add deletion method for posts
-- Make UI pretty
+- Added post creation validation
+- Added editing feature for posts (only for owner of posting)
+- Added deletion method for posts (only for owner of posting)
+- Made UI slightly prettier
+- Added filtering based on subject, and user or professional
+- Added page for viewing own postings

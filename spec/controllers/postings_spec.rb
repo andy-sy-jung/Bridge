@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe PostingsController, type: :controller do
   before do
     @user = User.create(email: 'user@example.com', password: 'password123') # Create a user
+    @user2 = User.create(email: 'user2@example.com', password: 'password123')
     sign_in @user # Sign in the user using Devise
   end
 
@@ -140,6 +141,137 @@ RSpec.describe PostingsController, type: :controller do
     end
   end
 
+  describe 'PATCH #update' do
+    let(:posting) { Posting.create(
+      user_id: @user.id,
+      type_of: 'User',
+      name: 'Test Name',
+      price: 100.0,
+      subject: 'CS',
+      description: 'Test Description',
+      availability: 'Available',
+      contact: 'test@example.com'
+    )}
+    let(:valid_params) { { type_of: 'Professional', subject: 'Math', description: 'Updated description' } }
+    let(:invalid_params) { { type_of: 'Professional', subject: '', description: 'Updated description' } }
+
+    context 'with valid params' do
+      it 'updates the posting' do
+        patch :update, params: { id: posting.id, posting: valid_params }
+        posting.reload
+
+        expect(response).to redirect_to(posting_path(posting))
+        expect(posting.type_of).to eq('Professional')
+        expect(posting.subject).to eq('Math')
+        expect(posting.description).to eq('Updated description')
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    let!(:posting) do
+      Posting.create(
+        user_id: @user.id,
+        type_of: 'User',
+        name: 'Test Name',
+        price: 100.0,
+        subject: 'CS',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+
+    it 'deletes the posting' do
+      puts "Count before deletion: #{Posting.count}"
+      expect {
+        delete :destroy, params: { id: posting.id }
+      }.to change(Posting, :count).by(-1)
+      puts "Count after deletion: #{Posting.count}"
+    
+      expect(response).to redirect_to(postings_path)
+    end
+
+    it 'redirects to postings_path' do
+      delete :destroy, params: { id: posting.id }
+      expect(response).to redirect_to(postings_path)
+    end
+  end
+
+  describe 'GET #my_postings' do
+    let!(:posting1) do
+      Posting.create(
+        user_id: @user.id,
+        type_of: 'User',
+        name: 'Test Name1',
+        price: 100.0,
+        subject: 'Math',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+    let!(:posting2) do
+      Posting.create(
+        user_id: @user.id,
+        type_of: 'User',
+        name: 'Test Name2',
+        price: 100.0,
+        subject: 'CS',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+    let!(:posting3) do
+      Posting.create(
+        user_id: @user2.id,
+        type_of: 'User',
+        name: 'Test Name3',
+        price: 100.0,
+        subject: 'CS',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+
+
+    it 'assigns @my_postings with postings belonging to the current user' do
+      get :my_postings
+      expect(assigns(:my_postings)).to match_array([posting1, posting2])
+    end
+
+    it 'renders the my_postings template' do
+      get :my_postings
+      expect(response).to render_template(:my_postings)
+    end
+  end
+
+  describe 'GET #edit' do
+    let!(:posting) do
+      Posting.create(
+        user_id: @user.id,
+        type_of: 'User',
+        name: 'Test Name3',
+        price: 100.0,
+        subject: 'CS',
+        description: 'Test Description',
+        availability: 'Available',
+        contact: 'test@example.com'
+      )
+    end
+
+    it 'assigns the requested posting to @posting' do
+      get :edit, params: { id: posting.id }
+      expect(assigns(:posting)).to eq(posting)
+    end
+
+    it 'renders the edit template' do
+      get :edit, params: { id: posting.id }
+      expect(response).to render_template(:edit)
+    end
+  end
 
 
 end

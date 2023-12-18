@@ -33,7 +33,9 @@
 </p>
 
 <div class="row">
+<% if current_user == @posting.user %>
   <%= link_to 'Edit posting', edit_posting_path(@posting), :class => 'btn btn-primary col-2' %>
   <%= link_to 'Delete posting', posting_path(@posting), method: :delete, class: 'btn btn-danger col-2' %>
+<% end %>
   <%= link_to 'Back to full list', postings_path, :class => 'btn btn-primary col-2' %>
 </div>
