@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/models/user.rb": {
+      "/Users/ajung/Desktop/Bridge/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -12,42 +12,26 @@
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/models/application_record.rb": {
+      "/Users/ajung/Desktop/Bridge/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/helpers/application_helper.rb": {
+      "/Users/ajung/Desktop/Bridge/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/helpers/pages_helper.rb": {
+      "/Users/ajung/Desktop/Bridge/app/helpers/pages_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/channels/application_cable/channel.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/channels/application_cable/connection.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/controllers/postings_controller.rb": {
+      "/Users/ajung/Desktop/Bridge/app/controllers/postings_controller.rb": {
         "lines": [
           1,
           null,
@@ -138,13 +122,13 @@
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/controllers/application_controller.rb": {
+      "/Users/ajung/Desktop/Bridge/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/controllers/users_controller.rb": {
+      "/Users/ajung/Desktop/Bridge/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -154,7 +138,7 @@
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/jobs/application_job.rb": {
+      "/Users/ajung/Desktop/Bridge/app/jobs/application_job.rb": {
         "lines": [
           1,
           null,
@@ -165,7 +149,7 @@
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/mailers/application_mailer.rb": {
+      "/Users/ajung/Desktop/Bridge/app/mailers/application_mailer.rb": {
         "lines": [
           1,
           1,
@@ -173,7 +157,7 @@
           null
         ]
       },
-      "/Users/ericamcgillicuddy/Downloads/Bridge/app/models/posting.rb": {
+      "/Users/ajung/Desktop/Bridge/app/models/posting.rb": {
         "lines": [
           1,
           1,
@@ -208,8 +192,253 @@
           null,
           null
         ]
+      },
+      "/Users/ajung/Desktop/Bridge/app/channels/application_cable/channel.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ajung/Desktop/Bridge/app/channels/application_cable/connection.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1702593907
+    "timestamp": 1702928471
+  },
+  "Cucumber Features": {
+    "coverage": {
+      "/Users/ajung/Desktop/Bridge/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/ajung/Desktop/Bridge/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/ajung/Desktop/Bridge/app/helpers/pages_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/ajung/Desktop/Bridge/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          8,
+          null,
+          null
+        ]
+      },
+      "/Users/ajung/Desktop/Bridge/app/controllers/postings_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          40,
+          40,
+          40,
+          40,
+          null,
+          null,
+          1,
+          20,
+          20,
+          20,
+          null,
+          null,
+          1,
+          20,
+          18,
+          null,
+          2,
+          null,
+          null,
+          null,
+          1,
+          20,
+          18,
+          null,
+          2,
+          null,
+          null,
+          null,
+          1,
+          8,
+          8,
+          null,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          4,
+          4,
+          null,
+          4,
+          4,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          5,
+          null,
+          null
+        ]
+      },
+      "/Users/ajung/Desktop/Bridge/app/models/posting.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          83,
+          null,
+          null,
+          1,
+          85,
+          null,
+          null,
+          1,
+          20,
+          18,
+          2,
+          0,
+          2,
+          0,
+          null,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/ajung/Desktop/Bridge/app/channels/application_cable/channel.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ajung/Desktop/Bridge/app/channels/application_cable/connection.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ajung/Desktop/Bridge/app/jobs/application_job.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ajung/Desktop/Bridge/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ajung/Desktop/Bridge/app/models/application_record.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ajung/Desktop/Bridge/app/models/user.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1702928445
   }
 }
