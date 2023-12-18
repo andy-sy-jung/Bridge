@@ -22,7 +22,7 @@
 - You will now see other postings of people and their services, interact with them by looking into their info
 - Creating a new posting for you and the services you offer.
 
-**Features Added in V2**
+**Additional Features**
 
 - Added post creation validation
 - Added editing feature for posts (only for owner of posting)
@@ -30,8 +30,3 @@
 - Made UI slightly prettier
 - Added filtering based on subject, and user or professional
 - Added page for viewing own postings
-
-**TO DO**
-- Limiting posts for each user?
-- Make UI way prettier
-- Add ability to upload pictures to posting?
