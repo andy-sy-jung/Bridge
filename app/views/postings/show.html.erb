@@ -1,41 +1,85 @@
-<h2>Details about <em><%= @posting.name %>'s posting</em></h2>
-
-<ul id="details">
-  <li>
-    Type:
-    <%= @posting.type_of %>
-  </li>
-  <li>
-    Subject:
-    <%= @posting.subject %>
-  </li>
-  <li>
-    Description:
-    <%= @posting.description %>
-  </li>
-  <li>
-    Availability:
-    <%= @posting.availability %>
-  </li>
-  <li>
-    Price:
-    <%= @posting.price %>
-  </li>
-  <li>
-    Contact Info:
-    <%= @posting.contact %>
-  </li>
-</ul>
-
-<h3>Description:</h3>
-<p id="description">
-  <%= @posting.description %>
-</p>
-
-<div class="row">
-<% if current_user == @posting.user %>
-  <%= link_to 'Edit posting', edit_posting_path(@posting), :class => 'btn btn-primary col-2' %>
-  <%= link_to 'Delete posting', posting_path(@posting), method: :delete, class: 'btn btn-danger col-2' %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'show' %>
 <% end %>
-  <%= link_to 'Back to full list', postings_path, :class => 'btn btn-primary col-2' %>
+
+<div class="container my-5">
+  <h2 class="text-center mb-4" style="color: #2c3e50;">Details about <em><%= @posting.name %>'s posting</em></h2>
+
+  <div class="show-card mb-4">
+    <div class="show-card-body">
+      <ul class="list-unstyled">
+        <li class="py-2"><strong>Type:</strong> <span class="text-secondary"><%= @posting.type_of %></span></li>
+        <li class="py-2"><strong>Subject:</strong> <span class="text-secondary"><%= @posting.subject %></span></li>
+        <li class="py-2"><strong>Description:</strong> <span class="text-secondary"><%= @posting.description %></span></li>
+        <li class="py-2"><strong>Availability:</strong> <span class="text-secondary"><%= @posting.availability %></span></li>
+        <li class="py-2"><strong>Price:</strong> <span class="text-secondary"><%= @posting.price %></span></li>
+        <li class="py-2"><strong>Contact Info:</strong> <span class="text-secondary"><%= @posting.contact %></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="mb-3" style="color: #34495e;">Description:</h3>
+  <p class="show-description">
+    <%= @posting.description %>
+  </p>
+
+  <div class="row mt-4">
+    <% if current_user == @posting.user %>
+      <%= link_to 'Edit posting', edit_posting_path(@posting), class: 'btn btn-info col-md-2 mx-1' %>
+      <%= link_to 'Delete posting', posting_path(@posting), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger col-md-2 mx-1' %>
+    <% end %>
+    <%= link_to 'Back to full list', postings_path, class: 'btn btn-outline-secondary col-md-2 mx-1' %>
+  </div>
 </div>
+
+<style>
+  .container {
+    max-width: 800px;
+  }
+
+  .text-center {
+    color: #2c3e50;
+  }
+
+  .card-body {
+    background-color: #eaf2f8;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-info {
+    background-color: #3498db;
+    border-color: #3498db;
+  }
+
+  .btn-info:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  .btn-outline-secondary {
+    border-color: #7f8c8d;
+    color: #7f8c8d;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #7f8c8d;
+    color: white;
+  }
+
+  #description {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-left: 5px solid #2980b9;
+  }
+
+  ul li strong {
+    color: #3498db;
+  }
+</style>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

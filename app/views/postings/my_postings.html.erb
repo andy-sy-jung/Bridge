@@ -1,27 +1,19 @@
 <h1>My Postings</h1>
 
 <% if @my_postings.any? %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Subject</th>
-        <th>Hourly Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @my_postings.each do |posting| %>
-        <tr>
-          <td><%= posting.type_of %></td>
-          <td><%= posting.name %></td>
-          <td><%= posting.subject %></td>
-          <td><%= posting.price %></td>
-          <td><%= link_to 'More about this posting', posting %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="postings-container">
+<% @my_postings.each do |p| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= p.name %></h5>
+      <p class="card-subtitle"><%= p.type_of %></p>
+      <p class="card-text"><%= p.subject %></p>
+      <p class="card-text">Hourly Price: <%= p.price %></p>
+      <%= link_to "More about this #{p.type_of}", posting_path(p), class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+</div>
 <% else %>
   <p>You have not created any postings yet.</p>
 <% end %>

@@ -51,9 +51,9 @@ Given("I am on the sign-up page") do
   end
 
   Then("I should see a table row with the following fields:") do |table|
-    table.raw.each do |field|
-      field_name = field[0]
-      expect(page).to have_selector('tr', text: field_name)
+    table.raw.flatten.each do |expected_detail|
+      # This assumes that each detail you want to check is distinctly present in the card's text
+      expect(page).to have_css('div.card', text: expected_detail)
     end
   end
 
@@ -68,18 +68,18 @@ Given("I am on the sign-up page") do
 end
   
 Then("I should see the following details for the posting:") do |table|
-  # Access the page content and convert it to a string
-  page_content = page.body
+  expected_details = table.rows_hash
 
-  # Extract the details from the page content
-  details = page_content.scan(/(\w+):\s+([^\n]+)/)
-  details.reject! { |key, value| key == "top"}
+  expected_details.each do |key, expected_value|
+    # Construct the CSS selector based on the key to find the specific 'li' element
+    li_element = page.find('li', text: /#{key}/)
 
-  # Convert the table in the step to a hash of expected details
-  expected_details = Hash[table.rows_hash.map { |k, v| [k, v] }]
+    # Extract the text value from the 'span.text-secondary' within the found 'li' element
+    actual_value = li_element.find('span.text-secondary').text.strip
 
-  # Compare the expected details to the actual details
-  expect(details.to_h).to eq(expected_details)
+    # Compare the actual value with the expected value
+    expect(actual_value).to eq(expected_value)
+  end
 end
 
 Then("I have the following posting by another user:") do |table|
