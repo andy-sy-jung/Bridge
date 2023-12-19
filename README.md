@@ -15,18 +15,17 @@
 
 **Heroku Link**: https://guarded-escarpment-94993-1fc742c1d1ba.herokuapp.com
 
-**Basic Features**
+**GitHub Link**: https://github.com/andy-sy-jung/Bridge
 
-- Creating an account, we save the info in a pg databse
+**Features**
+
+- Pretty UI
+- Creating an account, we save the info in a pg database
 - Login/Logout
 - You will now see other postings of people and their services, interact with them by looking into their info
-- Creating a new posting for you and the services you offer.
-
-**Additional Features**
-
+- Creating a new posting for you and the services you offer
 - Added post creation validation
 - Added editing feature for posts (only for owner of posting)
 - Added deletion method for posts (only for owner of posting)
-- Made UI slightly prettier
 - Added filtering based on subject, and user or professional
 - Added page for viewing own postings
