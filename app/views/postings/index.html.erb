@@ -3,45 +3,61 @@
 
 <h2>Postings</h2>
 
-<%= form_tag postings_path, method: :get, id: 'types_form' do %>
-  Include Posts Made By:
-  <% @all_types.each do |t| %>
-    <div class="form-check  form-check-inline">
-      <%= label_tag "types[#{t}]", t, class: 'form-check-label' %>
-      <%= check_box_tag "types[#{t}]", "1",  @types_to_show.include?(t), class: 'form-check-input' %>
-    </div>
-  <% end %>
-  <br/>
-  Include Subjects:
-  <% @all_subjects.each do |s| %>
-    <div class="form-check  form-check-inline">
-      <%= label_tag "subjects[#{s}]", s, class: 'form-check-label' %>
-      <%= check_box_tag "subjects[#{s}]", "1",  @subjects_to_show.include?(s), class: 'form-check-input' %>
-    </div>
-  <% end %>
-  <br/>
-  <%= submit_tag 'Refresh', class: 'btn btn-primary' %>
+<%= form_tag postings_path, method: :get, id: 'types_form', class: 'filter-form' do %>
+  <div class="filter-row">
+    Include Posts Made By:
+    <% @all_types.each do |t| %>
+      <%= label_tag "types_#{t}", t, class: 'filter-label' %>
+      <%= check_box_tag "types[#{t}]", "1",  @types_to_show.include?(t), class: 'form-check-input', id: "types_#{t}" %>
+    <% end %>
+  </div>
+  <div class="filter-row">
+    Include Subjects:
+    <% @all_subjects.each do |s| %>
+      <%= label_tag "subjects_#{s}", s, class: 'filter-label' %>
+      <%= check_box_tag "subjects[#{s}]", "1",  @subjects_to_show.include?(s), class: 'form-check-input', id: "subjects_#{s}" %>
+    <% end %>
+  </div>
+  <%= submit_tag 'Refresh', class: 'btn btn-primary btn-refresh' %>
 <% end %>
 
-<div class="postings-container">
-  <% @postings.each do |p| %>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= p.name %></h5>
-        <p class="card-subtitle"><%= p.type_of %></p>
-        <p class="card-text"><%= p.subject %></p>
-        <p class="card-text">Hourly Price: <%= p.price %></p>
-        <%= link_to "More about this #{p.type_of}", posting_path(p), class: 'btn btn-primary' %>
-      </div>
-    </div>
-  <% end %>
-</div>
-
+<table class="table table-striped col-md-12" id="postings">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Subject</th>
+      <th>Hourly Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @postings.each do |p| %>
+      <tr>
+        <td>
+          <%= p.type_of %>
+        </td>
+        <td>
+          <%= p.name %>
+        </td>
+        <td>
+          <%= p.subject %>
+        </td>
+        <td>
+          <%= p.price %>
+        </td>
+        <td>
+          <%= link_to "More about this #{p.type_of}", posting_path(p) %>
+        </td>
+      </tr>
+      <tr><td colspan="5"><hr></td></tr> <!-- This adds a horizontal line between postings -->
+    <% end %>
+  </tbody>
+</table>
 <%= link_to 'Add new posting', new_posting_path, :class => 'btn btn-primary' %>
 
 <%= button_to(
         "Log Out",
         destroy_user_session_path,
         method: :delete,
-        class: 'btn btn-secondary'
+        class: 'btn btn-primary col-2'
       ) %>

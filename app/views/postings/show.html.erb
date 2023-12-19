@@ -1,11 +1,12 @@
-<!-- Include Bootstrap for styling (you can include this in the head of your HTML) -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'show' %>
+<% end %>
 
 <div class="container my-5">
   <h2 class="text-center mb-4" style="color: #2c3e50;">Details about <em><%= @posting.name %>'s posting</em></h2>
 
-  <div class="card mb-4">
-    <div class="card-body" style="background-color: #eaf2f8;">
+  <div class="show-card mb-4">
+    <div class="show-card-body">
       <ul class="list-unstyled">
         <li class="py-2"><strong>Type:</strong> <span class="text-secondary"><%= @posting.type_of %></span></li>
         <li class="py-2"><strong>Subject:</strong> <span class="text-secondary"><%= @posting.subject %></span></li>
@@ -18,7 +19,7 @@
   </div>
 
   <h3 class="mb-3" style="color: #34495e;">Description:</h3>
-  <p id="description" style="background-color: #ecf0f1; padding: 15px; border-left: 5px solid #2980b9;">
+  <p class="show-description">
     <%= @posting.description %>
   </p>
 

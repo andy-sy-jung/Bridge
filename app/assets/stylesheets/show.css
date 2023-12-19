@@ -1,0 +1,42 @@
+/* Override styles for show view only */
+.show-card {
+    background-color: #eaf2f8; /* Your specific color */
+    /* Other styles specific to show view */
+  }
+  
+  .show-card-body {
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .show-btn-info {
+    background-color: #3498db;
+    border-color: #3498db;
+  }
+  
+  .show-btn-info:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+  
+  .show-btn-outline-secondary {
+    border-color: #7f8c8d;
+    color: #7f8c8d;
+  }
+  
+  .show-btn-outline-secondary:hover {
+    background-color: #7f8c8d;
+    color: white;
+  }
+  
+  .show-description {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-left: 5px solid #2980b9;
+  }
+  
+  .show-list-strong {
+    color: #3498db;
+  }
+  
