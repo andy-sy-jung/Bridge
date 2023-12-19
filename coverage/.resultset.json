@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ajung/Desktop/Bridge/app/models/user.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -12,26 +12,26 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/models/application_record.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/helpers/application_helper.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/helpers/pages_helper.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/helpers/pages_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/controllers/postings_controller.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/controllers/postings_controller.rb": {
         "lines": [
           1,
           null,
@@ -122,13 +122,13 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/controllers/application_controller.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/controllers/users_controller.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -138,7 +138,7 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/jobs/application_job.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/jobs/application_job.rb": {
         "lines": [
           1,
           null,
@@ -149,7 +149,7 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/mailers/application_mailer.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/mailers/application_mailer.rb": {
         "lines": [
           1,
           1,
@@ -157,7 +157,7 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/models/posting.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/models/posting.rb": {
         "lines": [
           1,
           1,
@@ -193,7 +193,7 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/channels/application_cable/channel.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -203,7 +203,7 @@
         "branches": {
         }
       },
-      "/Users/ajung/Desktop/Bridge/app/channels/application_cable/connection.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
@@ -214,29 +214,29 @@
         }
       }
     },
-    "timestamp": 1702928471
+    "timestamp": 1702958209
   },
   "Cucumber Features": {
     "coverage": {
-      "/Users/ajung/Desktop/Bridge/app/controllers/application_controller.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/helpers/application_helper.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/helpers/pages_helper.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/helpers/pages_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/controllers/users_controller.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -246,7 +246,7 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/controllers/postings_controller.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/controllers/postings_controller.rb": {
         "lines": [
           1,
           null,
@@ -337,7 +337,7 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/models/posting.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/models/posting.rb": {
         "lines": [
           1,
           1,
@@ -373,7 +373,7 @@
           null
         ]
       },
-      "/Users/ajung/Desktop/Bridge/app/channels/application_cable/channel.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -383,7 +383,7 @@
         "branches": {
         }
       },
-      "/Users/ajung/Desktop/Bridge/app/channels/application_cable/connection.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
@@ -393,7 +393,7 @@
         "branches": {
         }
       },
-      "/Users/ajung/Desktop/Bridge/app/jobs/application_job.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -406,7 +406,7 @@
         "branches": {
         }
       },
-      "/Users/ajung/Desktop/Bridge/app/mailers/application_mailer.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -416,7 +416,7 @@
         "branches": {
         }
       },
-      "/Users/ajung/Desktop/Bridge/app/models/application_record.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/models/application_record.rb": {
         "lines": [
           0,
           0,
@@ -425,7 +425,7 @@
         "branches": {
         }
       },
-      "/Users/ajung/Desktop/Bridge/app/models/user.rb": {
+      "/Users/rutvikrau/Desktop/College_Stuff/CS/ESAAS/Bridge/app/models/user.rb": {
         "lines": [
           0,
           null,
@@ -439,6 +439,6 @@
         }
       }
     },
-    "timestamp": 1702928445
+    "timestamp": 1702958204
   }
 }
